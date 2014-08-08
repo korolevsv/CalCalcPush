@@ -17,6 +17,11 @@
 // Designated initializer
 - (instancetype)initWithDates:(NSDate *)startDate endDate:(NSDate *)endDate;
 //- (instancetype) setStartDate;
+- (NSNumber *)intervalYears;
+- (NSNumber *)intervalMonths;
+- (long)intervalDays;
+- (NSNumber *)intervalHours;
+- (NSNumber *)intervalSecs;
 
 
 @end

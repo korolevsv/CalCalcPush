@@ -53,13 +53,13 @@
 
 #pragma mark - View fields setting
 - (void) updateView {
-    NSString *text;
+//    NSString *text;
     self.startDate = self.calCalc.startDate;
     self.endDate = self.calCalc.endDate;
     self.intervalBetweenDates = self.calCalc.intervalBetweenDates;
     
-    text = [NSString stringWithFormat:@"%f", self.intervalBetweenDates];
-    self.secsTextField.text = text;
+    self.secsTextField.text = [NSString stringWithFormat:@"%d", (double)self.intervalBetweenDates];
+    self.daysTextField.text = [NSString stringWithFormat:@"%d", [self.calCalc intervalDays]];
     
     
     
