@@ -20,6 +20,7 @@
 		539930C81994E1B6006210B4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 539930C61994E1B6006210B4 /* InfoPlist.strings */; };
 		539930CA1994E1B6006210B4 /* CalCalcPushTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 539930C91994E1B6006210B4 /* CalCalcPushTests.m */; };
 		539930D41994E1FB006210B4 /* CalcPushSegue.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 539930D31994E1FB006210B4 /* CalcPushSegue.storyboard */; };
+		539930D81994EF60006210B4 /* SVKDatesPeriodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 539930D71994EF60006210B4 /* SVKDatesPeriodViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,8 @@
 		539930C71994E1B6006210B4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		539930C91994E1B6006210B4 /* CalCalcPushTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalCalcPushTests.m; sourceTree = "<group>"; };
 		539930D31994E1FB006210B4 /* CalcPushSegue.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CalcPushSegue.storyboard; sourceTree = "<group>"; };
+		539930D61994EF60006210B4 /* SVKDatesPeriodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVKDatesPeriodViewController.h; sourceTree = "<group>"; };
+		539930D71994EF60006210B4 /* SVKDatesPeriodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVKDatesPeriodViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +82,8 @@
 		539930981994E1B6006210B4 = {
 			isa = PBXGroup;
 			children = (
+				539930D61994EF60006210B4 /* SVKDatesPeriodViewController.h */,
+				539930D71994EF60006210B4 /* SVKDatesPeriodViewController.m */,
 				539930D31994E1FB006210B4 /* CalcPushSegue.storyboard */,
 				539930AA1994E1B6006210B4 /* CalCalcPush */,
 				539930C31994E1B6006210B4 /* CalCalcPushTests */,
@@ -244,6 +249,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				539930D81994EF60006210B4 /* SVKDatesPeriodViewController.m in Sources */,
 				539930B11994E1B6006210B4 /* main.m in Sources */,
 				539930B51994E1B6006210B4 /* SVKAppDelegate.m in Sources */,
 			);
