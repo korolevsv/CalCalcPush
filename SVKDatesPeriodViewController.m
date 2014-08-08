@@ -7,8 +7,11 @@
 //
 
 #import "SVKDatesPeriodViewController.h"
+#import "SVKCalCalc.h"
 
 @interface SVKDatesPeriodViewController ()
+
+@property SVKCalCalc *calCalc;
 
 @end
 
@@ -27,6 +30,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    _calCalc = [[SVKCalCalc alloc] init];
+    [self updateView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,4 +51,17 @@
 }
 */
 
+#pragma mark - View fields setting
+- (void) updateView {
+    NSString *text;
+    self.startDate = self.calCalc.startDate;
+    self.endDate = self.calCalc.endDate;
+    self.intervalBetweenDates = self.calCalc.intervalBetweenDates;
+    
+    text = [NSString stringWithFormat:@"%f", self.intervalBetweenDates];
+    self.secsTextField.text = text;
+    
+    
+    
+}
 @end
