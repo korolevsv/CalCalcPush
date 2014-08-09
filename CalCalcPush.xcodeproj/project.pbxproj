@@ -22,6 +22,7 @@
 		539930D41994E1FB006210B4 /* CalcPushSegue.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 539930D31994E1FB006210B4 /* CalcPushSegue.storyboard */; };
 		539930D81994EF60006210B4 /* SVKDatesPeriodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 539930D71994EF60006210B4 /* SVKDatesPeriodViewController.m */; };
 		539930DF199516AA006210B4 /* SVKCalCalc.m in Sources */ = {isa = PBXBuildFile; fileRef = 539930DE199516AA006210B4 /* SVKCalCalc.m */; };
+		53D6556119956CD800C7C4B2 /* SVKSetDateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D6556019956CD800C7C4B2 /* SVKSetDateViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		539930D71994EF60006210B4 /* SVKDatesPeriodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVKDatesPeriodViewController.m; sourceTree = "<group>"; };
 		539930DD199516AA006210B4 /* SVKCalCalc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVKCalCalc.h; sourceTree = "<group>"; };
 		539930DE199516AA006210B4 /* SVKCalCalc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVKCalCalc.m; sourceTree = "<group>"; };
+		53D6555F19956CD800C7C4B2 /* SVKSetDateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVKSetDateViewController.h; sourceTree = "<group>"; };
+		53D6556019956CD800C7C4B2 /* SVKSetDateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVKSetDateViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +93,8 @@
 				539930DD199516AA006210B4 /* SVKCalCalc.h */,
 				539930DE199516AA006210B4 /* SVKCalCalc.m */,
 				539930D31994E1FB006210B4 /* CalcPushSegue.storyboard */,
+				53D6555F19956CD800C7C4B2 /* SVKSetDateViewController.h */,
+				53D6556019956CD800C7C4B2 /* SVKSetDateViewController.m */,
 				539930AA1994E1B6006210B4 /* CalCalcPush */,
 				539930C31994E1B6006210B4 /* CalCalcPushTests */,
 				539930A31994E1B6006210B4 /* Frameworks */,
@@ -256,6 +261,7 @@
 			files = (
 				539930D81994EF60006210B4 /* SVKDatesPeriodViewController.m in Sources */,
 				539930B11994E1B6006210B4 /* main.m in Sources */,
+				53D6556119956CD800C7C4B2 /* SVKSetDateViewController.m in Sources */,
 				539930DF199516AA006210B4 /* SVKCalCalc.m in Sources */,
 				539930B51994E1B6006210B4 /* SVKAppDelegate.m in Sources */,
 			);
@@ -454,6 +460,7 @@
 				539930CF1994E1B6006210B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		539930D01994E1B6006210B4 /* Build configuration list for PBXNativeTarget "CalCalcPushTests" */ = {
 			isa = XCConfigurationList;
@@ -462,6 +469,7 @@
 				539930D21994E1B6006210B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

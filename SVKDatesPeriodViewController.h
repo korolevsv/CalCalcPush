@@ -11,8 +11,8 @@
 
 @interface SVKDatesPeriodViewController : UIViewController
 
-@property NSDate *startDate;
-@property NSDate *endDate;
+@property (nonatomic, strong)NSDate *startDate;
+@property (nonatomic, strong)NSDate *endDate;
 @property NSTimeInterval intervalBetweenDates;
 //@property SVKCalCalc *@calCalc;
 @property (weak, nonatomic) IBOutlet UILabel *startDateLabel;

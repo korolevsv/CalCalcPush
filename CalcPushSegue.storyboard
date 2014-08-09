@@ -197,10 +197,10 @@
             </objects>
             <point key="canvasLocation" x="351" y="38"/>
         </scene>
-        <!--View Controller-->
+        <!--Set Date View Controller-->
         <scene sceneID="Fwj-ff-Xqu">
             <objects>
-                <viewController id="ira-tT-z6g" sceneMemberID="viewController">
+                <viewController id="ira-tT-z6g" customClass="SVKSetDateViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sgz-ZW-FDG"/>
                         <viewControllerLayoutGuide type="bottom" id="eHQ-oM-hzV"/>
@@ -236,6 +236,9 @@ AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
 </data>
                                 </timeZone>
+                                <connections>
+                                    <action selector="datePickerSet:" destination="ira-tT-z6g" eventType="valueChanged" id="5ug-4S-YbA"/>
+                                </connections>
                             </datePicker>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Vkh-bg-wsg">
                                 <rect key="frame" x="20" y="317" width="280" height="162"/>
@@ -264,6 +267,9 @@ AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
 </data>
                                 </timeZone>
+                                <connections>
+                                    <action selector="timePickerSet:" destination="ira-tT-z6g" eventType="valueChanged" id="B7E-jY-hLr"/>
+                                </connections>
                             </datePicker>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Set Date and Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ac0-ex-IJ0">
                                 <rect key="frame" x="20" y="88" width="280" height="21"/>
@@ -275,6 +281,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="LH7-yQ-f88"/>
+                    <connections>
+                        <outlet property="datePicker" destination="bkX-HD-uso" id="NUH-Yk-Ldx"/>
+                        <outlet property="timePicker" destination="Vkh-bg-wsg" id="AWn-uq-CWo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p20-VX-ds2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -287,6 +297,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="nqG-e2-kxx"/>
+        <segue reference="GcF-TL-hBX"/>
     </inferredMetricsTieBreakers>
 </document>
