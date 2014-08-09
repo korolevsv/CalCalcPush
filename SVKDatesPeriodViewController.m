@@ -87,10 +87,21 @@
 //    self.intervalBetweenDates = self.calCalc.intervalBetweenDates;
 
     self.startDateLabel.text = [formatter stringFromDate:self.startDate];
-    self.daysTextField.text = [NSString stringWithFormat:@"%d", [self.calCalc intervalDays]];
+    self.endDateLabel.text = [formatter stringFromDate:self.endDate];
 
-    self.intervalBetweenDates = [self.endDate timeIntervalSinceDate:self.startDate];
-    self.secsTextField.text = [NSString stringWithFormat:@"%d", (double)self.intervalBetweenDates];
+    self.yearsTextField.text = [NSString stringWithFormat:@"%ld", [self.calCalc intervalYears]];
+    self.monthsTextField.text = [NSString stringWithFormat:@"%ld", [self.calCalc intervalMonths]];
+    self.daysTextField.text = [NSString stringWithFormat:@"%ld", [self.calCalc intervalDays]];
+    self.hoursTextField.text = [NSString stringWithFormat:@"%ld", [self.calCalc intervalHours]];
+    self.minsTextField.text = [NSString stringWithFormat:@"%ld", [self.calCalc intervalMins]];
+    self.secsTextField.text = [NSString stringWithFormat:@"%ld", [self.calCalc intervalSecs]];
+
+    
+//    self.intervalBetweenDates = [self.endDate timeIntervalSinceDate:self.startDate];
+
+//    long secs = [[NSNumber numberWithDouble:[self.endDate timeIntervalSinceDate:self.startDate]] longValue];
+    
+//    self.secsTextField.text = [NSString stringWithFormat:@"%ld", secs];
 
     
     

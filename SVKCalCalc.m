@@ -31,18 +31,27 @@ NSCalendarUnit units;
     return self;
 }
 
-/*
-- (double)intervalYears {
-    return 1;
+
+- (long)intervalYears {
+    units = NSYearCalendarUnit;
+    components = [calendar components:units
+                             fromDate:self.startDate
+                               toDate:self.endDate
+                              options:0];
+    return [components year];
 }
-- (double)intervalMonths {
-    return 1;
-    
+
+- (long)intervalMonths {
+    units = NSMonthCalendarUnit;
+    components = [calendar components:units
+                             fromDate:self.startDate
+                               toDate:self.endDate
+                              options:0];
+    return [components month];
 }
-*/
+
 
 - (long)intervalDays {
-    NSNumber *days = [[NSNumber alloc] init];
     units = NSDayCalendarUnit;
     components = [calendar components:units
                              fromDate:self.startDate
@@ -50,24 +59,33 @@ NSCalendarUnit units;
                               options:0];
     return [components day];    
 }
-/*
-- (double)intervalHours {
-    
-    return 1;
-}
-- (double)intervalSecs {
-    
-    return 1;
-}
-*/
 
-/*
- units = NSWeekCalendarUnit;
- components = [calendar components:units
- fromDate:startDate
- toDate:endDate
- options:0];
+- (long)intervalHours {
+    units = NSHourCalendarUnit;
+    components = [calendar components:units
+                             fromDate:self.startDate
+                               toDate:self.endDate
+                              options:0];
+    return [components hour];
+}
 
- */
+- (long)intervalMins {
+    units = NSMinuteCalendarUnit;
+    components = [calendar components:units
+                             fromDate:self.startDate
+                               toDate:self.endDate
+                              options:0];
+    return [components minute];
+}
+
+- (long)intervalSecs {
+    units = NSSecondCalendarUnit;
+    components = [calendar components:units
+                             fromDate:self.startDate
+                               toDate:self.endDate
+                              options:0];
+    return [components second];
+}
+
 
 @end
