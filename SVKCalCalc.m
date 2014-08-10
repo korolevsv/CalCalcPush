@@ -20,8 +20,16 @@ NSCalendarUnit units = NSSecondCalendarUnit;
 
 - (instancetype)init {
     NSDate *now = [[NSDate alloc] init];
+    NSDate *today; // Today without time
     components = [[NSDateComponents alloc] init];
-    return [self initWithDates:now endDate:now];
+    unsigned unitFlagsDateOnly = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit;
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    NSDateComponents *components = [cal components:unitFlagsDateOnly fromDate:now];
+    today = [cal dateFromComponents:components];
+// return today without time
+    return [self initWithDates:today endDate:today
+        ];
+//    return [self initWithDates:now endDate:now];
 }
 
 // Designated initializer
@@ -66,7 +74,7 @@ NSCalendarUnit units = NSSecondCalendarUnit;
 }
 
 
-- (NSInteger)intervalYears {
+- (long)intervalYears {
     if (_calcYears) {
         components = [calendar components:[self getUnits]
                              fromDate:self.startDate
@@ -78,7 +86,7 @@ NSCalendarUnit units = NSSecondCalendarUnit;
     }
 }
 
-- (NSInteger)intervalMonths {
+- (long)intervalMonths {
     if(_calcMonths) {
         components = [calendar components:[self getUnits]
                                  fromDate:self.startDate
@@ -92,7 +100,7 @@ NSCalendarUnit units = NSSecondCalendarUnit;
 }
 
 
-- (NSInteger)intervalDays {
+- (long)intervalDays {
     if (_calcDays) {
         components = [calendar components:[self getUnits]
                                  fromDate:self.startDate
@@ -105,7 +113,7 @@ NSCalendarUnit units = NSSecondCalendarUnit;
     }
 }
 
-- (NSInteger)intervalHours {
+- (long)intervalHours {
     if (_calcHours) {
         components = [calendar components:[self getUnits]
                                  fromDate:self.startDate
@@ -118,7 +126,7 @@ NSCalendarUnit units = NSSecondCalendarUnit;
     }
 }
 
-- (NSInteger)intervalMins {
+- (long)intervalMins {
     if (_calcMins) {
         components = [calendar components:[self getUnits]
                                  fromDate:self.startDate
@@ -131,12 +139,14 @@ NSCalendarUnit units = NSSecondCalendarUnit;
     }
 }
 
-- (NSInteger)intervalSecs {
+- (NSTimeInterval)intervalSecs {
     NSCalendarUnit unit = [self getUnits];
     if (_calcSecs) {
         if (unit == NSSecondCalendarUnit)
         {
-            return [self.endDate timeIntervalSinceDate:self.startDate];
+            NSTimeInterval secsNSTime = [self.endDate timeIntervalSinceDate:self.startDate];
+//            long vOut = [[NSNumber numberWithDouble:longSecs] longValue];
+            return secsNSTime;
             
         } else {
             components = [calendar components:unit

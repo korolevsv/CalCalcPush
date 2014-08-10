@@ -27,12 +27,12 @@
  - (void) setComponents:(BOOL)isSecs withMins:(BOOL)isMins withHours:(BOOL)isHours withDays:(BOOL)isDays withMonths:(BOOL)isMonths withYears:(BOOL)isYears;
 */
 
-- (NSInteger)intervalYears;
-- (NSInteger)intervalMonths;
-- (NSInteger)intervalDays;
-- (NSInteger)intervalHours;
-- (NSInteger)intervalMins;
-- (NSInteger)intervalSecs;
+- (long)intervalYears;
+- (long)intervalMonths;
+- (long)intervalDays;
+- (long)intervalHours;
+- (long)intervalMins;
+- (NSTimeInterval)intervalSecs;
 
 
 @end

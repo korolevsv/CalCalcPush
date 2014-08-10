@@ -74,6 +74,16 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+/*
+// Debug code
+    NSDateComponents *compsDebug = [[NSDateComponents alloc] init];
+    [compsDebug setYear:1065];
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+
+    NSDate *dateDebug = [calendar dateFromComponents:compsDebug];
+    self.startDate = dateDebug;
+// End of debug
+*/
     self.calCalc.startDate = self.startDate;
     self.calCalc.endDate = self.endDate;
     
@@ -176,30 +186,16 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateStyle:NSDateFormatterMediumStyle];
     [formatter setTimeStyle:NSDateFormatterShortStyle];
-    
-//    self.startDate = self.calCalc.startDate;
-//    self.endDate = self.calCalc.endDate;
-//    self.intervalBetweenDates = self.calCalc.intervalBetweenDates;
 
     self.startDateLabel.text = [formatter stringFromDate:self.startDate];
     self.endDateLabel.text = [formatter stringFromDate:self.endDate];
 
-    self.yearsTextField.text = [NSString stringWithFormat:@"%ld", (long)[self.calCalc intervalYears]];
-    self.monthsTextField.text = [NSString stringWithFormat:@"%ld", (long)[self.calCalc intervalMonths]];
-    self.daysTextField.text = [NSString stringWithFormat:@"%ld", (long)[self.calCalc intervalDays]];
-    self.hoursTextField.text = [NSString stringWithFormat:@"%ld", (long)[self.calCalc intervalHours]];
-    self.minsTextField.text = [NSString stringWithFormat:@"%ld", (long)[self.calCalc intervalMins]];
-    self.secsTextField.text = [NSString stringWithFormat:@"%ld", (long)[self.calCalc intervalSecs]];
-
-    
-//    self.intervalBetweenDates = [self.endDate timeIntervalSinceDate:self.startDate];
-
-//    long secs = [[NSNumber numberWithDouble:[self.endDate timeIntervalSinceDate:self.startDate]] longValue];
-    
-//    self.secsTextField.text = [NSString stringWithFormat:@"%ld", secs];
-
-    
-    
-    
+    self.yearsTextField.text = [NSString localizedStringWithFormat:@"%ld", [self.calCalc intervalYears]];
+    self.monthsTextField.text = [NSString localizedStringWithFormat:@"%ld", [self.calCalc intervalMonths]];
+    self.daysTextField.text = [NSString localizedStringWithFormat:@"%ld", [self.calCalc intervalDays]];
+    self.hoursTextField.text = [NSString localizedStringWithFormat:@"%ld", [self.calCalc intervalHours]];
+    self.minsTextField.text = [NSString localizedStringWithFormat:@"%ld", [self.calCalc intervalMins]];
+    self.secsTextField.text = [NSString localizedStringWithFormat:@"%ld", (long)[self.calCalc intervalSecs]];
+//    self.secsTextField.text = [NSString stringWithFormat:@"%ld", (long)[self.calCalc intervalSecs]];
 }
 @end
