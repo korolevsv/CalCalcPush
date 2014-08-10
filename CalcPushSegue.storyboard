@@ -156,7 +156,7 @@
                                 <rect key="frame" x="251" y="245" width="51" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="switchMonth:" destination="S0X-Ag-U2Z" eventType="valueChanged" id="ZYm-ja-whP"/>
+                                    <action selector="switchMonths:" destination="S0X-Ag-U2Z" eventType="valueChanged" id="KJO-bt-EcP"/>
                                 </connections>
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U3I-hv-e4i">
@@ -208,6 +208,12 @@
                         <outlet property="monthsTextField" destination="VId-nx-A5h" id="uAa-xc-Wwr"/>
                         <outlet property="secsTextField" destination="DKg-ec-Gd5" id="sYZ-m1-iiV"/>
                         <outlet property="startDateLabel" destination="611-tE-D1Q" id="fRf-ZY-Tdn"/>
+                        <outlet property="switchDays" destination="tK5-2a-ueh" id="HAh-el-E5j"/>
+                        <outlet property="switchHours" destination="MHL-zf-Rgn" id="CAe-6r-vMD"/>
+                        <outlet property="switchMins" destination="030-Rd-KT3" id="Jj4-0Y-f95"/>
+                        <outlet property="switchMonths" destination="JaF-oJ-cYQ" id="1mn-ex-KvC"/>
+                        <outlet property="switchSecs" destination="gt2-IP-ts0" id="tmu-rX-EUb"/>
+                        <outlet property="switchYears" destination="2CG-fW-iwl" id="5yw-QZ-pdX"/>
                         <outlet property="yearsTextField" destination="qt9-fT-bjx" id="8i6-xd-UTL"/>
                     </connections>
                 </viewController>

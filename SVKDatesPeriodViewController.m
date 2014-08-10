@@ -17,6 +17,12 @@
 @property SVKCalCalc *calCalc;
 @property UIColor *colorTextFieldDefault;
 @property UIColor *colorTextFieldDisabled;
+@property (weak, nonatomic) IBOutlet UISwitch *switchYears;
+@property (weak, nonatomic) IBOutlet UISwitch *switchMonths;
+@property (weak, nonatomic) IBOutlet UISwitch *switchDays;
+@property (weak, nonatomic) IBOutlet UISwitch *switchHours;
+@property (weak, nonatomic) IBOutlet UISwitch *switchMins;
+@property (weak, nonatomic) IBOutlet UISwitch *switchSecs;
 
 @end
 
@@ -42,6 +48,19 @@
     
     _colorTextFieldDefault = [UIColor whiteColor];
     _colorTextFieldDisabled = [UIColor lightGrayColor];
+    // Set initial switches and text backgrounds:
+    self.switchYears.on = YES;
+    [self switchYears:self.switchYears];
+    self.switchMonths.on = YES;
+    [self switchMonths:self.switchMonths];
+    self.switchDays.on = YES;
+    [self switchDay:self.switchDays];
+    self.switchHours.on = NO;
+    [self switchHour:self.switchHours];
+    self.switchMins.on = NO;
+    [self switchMin:self.switchMins];
+    self.switchSecs.on = NO;
+    [self switchSec:self.switchSecs];
 
     [self updateView];
 }
@@ -75,7 +94,7 @@
     }
     [self updateView];
 }
-- (IBAction)switchMonth:(id)sender {
+- (IBAction)switchMonths:(id)sender {
     UISwitch *sw = sender;
     self.calCalc.calcMonths = sw.on;
     if(sw.on) {
