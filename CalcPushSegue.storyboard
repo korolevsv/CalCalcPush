@@ -270,6 +270,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <date key="date" timeIntervalSinceReferenceDate="429189698.67578799">
                                     <!--2014-08-08 11:21:38 +0000-->
                                 </date>
+                                <date key="minimumDate" timeIntervalSinceReferenceDate="-63113873359">
+                                    <!--0001-01-01 08:30:41 +0000-->
+                                </date>
                                 <timeZone key="timeZone" name="America/Los_Angeles">
                                     <data key="data">
 VFppZgAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAC5AAAABAAAABCepkign7sVkKCGKqChmveQ

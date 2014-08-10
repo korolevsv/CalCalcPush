@@ -82,7 +82,7 @@
     // Restore settings from Date and Time Pickers
 }
 
-#pragma Switch processing
+#pragma mark - Switch processing
 - (IBAction)switchYears:(id)sender {
     UISwitch *sw = sender;
     self.calCalc.calcYears = sw.on;

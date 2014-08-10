@@ -132,12 +132,19 @@ NSCalendarUnit units = NSSecondCalendarUnit;
 }
 
 - (NSInteger)intervalSecs {
+    NSCalendarUnit unit = [self getUnits];
     if (_calcSecs) {
-        components = [calendar components:[self getUnits]
+        if (unit == NSSecondCalendarUnit)
+        {
+            return [self.endDate timeIntervalSinceDate:self.startDate];
+            
+        } else {
+            components = [calendar components:unit
                                  fromDate:self.startDate
                                    toDate:self.endDate
                                   options:0];
-        return [components second];
+            return [components second];
+        }
 
     } else {
         return 0;
