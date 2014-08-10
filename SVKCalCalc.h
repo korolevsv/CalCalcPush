@@ -12,17 +12,27 @@
 
 @property (nonatomic) NSDate *startDate;
 @property (nonatomic) NSDate *endDate;
-@property (nonatomic) NSTimeInterval intervalBetweenDates;
+@property BOOL calcYears;
+@property BOOL calcMonths;
+@property BOOL calcDays;
+@property BOOL calcHours;
+@property BOOL calcMins;
+@property BOOL calcSecs;
+
+//@property (nonatomic) NSTimeInterval intervalBetweenDates;
 
 // Designated initializer
 - (instancetype)initWithDates:(NSDate *)startDate endDate:(NSDate *)endDate;
-//- (instancetype) setStartDate;
-- (long)intervalYears;
-- (long)intervalMonths;
-- (long)intervalDays;
-- (long)intervalHours;
-- (long)intervalMins;
-- (long)intervalSecs;
+/*
+ - (void) setComponents:(BOOL)isSecs withMins:(BOOL)isMins withHours:(BOOL)isHours withDays:(BOOL)isDays withMonths:(BOOL)isMonths withYears:(BOOL)isYears;
+*/
+
+- (NSInteger)intervalYears;
+- (NSInteger)intervalMonths;
+- (NSInteger)intervalDays;
+- (NSInteger)intervalHours;
+- (NSInteger)intervalMins;
+- (NSInteger)intervalSecs;
 
 
 @end

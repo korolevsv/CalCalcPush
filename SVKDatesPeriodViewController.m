@@ -55,6 +55,38 @@
     // Restore settings from Date and Time Pickers
 }
 
+#pragma Switch processing
+- (IBAction)switchYears:(id)sender {
+    UISwitch *sw = sender;
+    self.calCalc.calcYears = sw.on;
+    [self updateView];
+}
+- (IBAction)switchMonth:(id)sender {
+    UISwitch *sw = sender;
+    self.calCalc.calcMonths = sw.on;
+    [self updateView];
+}
+- (IBAction)switchDay:(id)sender {
+    UISwitch *sw = sender;
+    self.calCalc.calcDays = sw.on;
+    [self updateView];
+}
+- (IBAction)switchHour:(id)sender {
+    UISwitch *sw = sender;
+    self.calCalc.calcHours = sw.on;
+    [self updateView];
+}
+- (IBAction)switchMin:(id)sender {
+    UISwitch *sw = sender;
+    self.calCalc.calcMins = sw.on;
+    [self updateView];
+}
+- (IBAction)switchSec:(id)sender {
+    UISwitch *sw = sender;
+    self.calCalc.calcSecs = sw.on;
+    [self updateView];
+}
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -89,12 +121,12 @@
     self.startDateLabel.text = [formatter stringFromDate:self.startDate];
     self.endDateLabel.text = [formatter stringFromDate:self.endDate];
 
-    self.yearsTextField.text = [NSString stringWithFormat:@"%ld", [self.calCalc intervalYears]];
-    self.monthsTextField.text = [NSString stringWithFormat:@"%ld", [self.calCalc intervalMonths]];
-    self.daysTextField.text = [NSString stringWithFormat:@"%ld", [self.calCalc intervalDays]];
-    self.hoursTextField.text = [NSString stringWithFormat:@"%ld", [self.calCalc intervalHours]];
-    self.minsTextField.text = [NSString stringWithFormat:@"%ld", [self.calCalc intervalMins]];
-    self.secsTextField.text = [NSString stringWithFormat:@"%ld", [self.calCalc intervalSecs]];
+    self.yearsTextField.text = [NSString stringWithFormat:@"%ld", (long)[self.calCalc intervalYears]];
+    self.monthsTextField.text = [NSString stringWithFormat:@"%ld", (long)[self.calCalc intervalMonths]];
+    self.daysTextField.text = [NSString stringWithFormat:@"%ld", (long)[self.calCalc intervalDays]];
+    self.hoursTextField.text = [NSString stringWithFormat:@"%ld", (long)[self.calCalc intervalHours]];
+    self.minsTextField.text = [NSString stringWithFormat:@"%ld", (long)[self.calCalc intervalMins]];
+    self.secsTextField.text = [NSString stringWithFormat:@"%ld", (long)[self.calCalc intervalSecs]];
 
     
 //    self.intervalBetweenDates = [self.endDate timeIntervalSinceDate:self.startDate];

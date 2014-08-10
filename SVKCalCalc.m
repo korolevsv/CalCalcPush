@@ -9,13 +9,18 @@
 #import "SVKCalCalc.h"
 #import <Foundation/NSCalendar.h>
 
+@interface SVKCalCalc()
+- (NSCalendarUnit) getUnits;
+@end
+
 @implementation SVKCalCalc
 NSCalendar *calendar;
 NSDateComponents *components;
-NSCalendarUnit units;
+NSCalendarUnit units = NSSecondCalendarUnit;
 
 - (instancetype)init {
     NSDate *now = [[NSDate alloc] init];
+    components = [[NSDateComponents alloc] init];
     return [self initWithDates:now endDate:now];
 }
 
@@ -25,67 +30,122 @@ NSCalendarUnit units;
 
     _startDate = startDate;
     _endDate = endDate;
-    _intervalBetweenDates = [endDate timeIntervalSinceDate:startDate];
     calendar = [NSCalendar currentCalendar];
-
+    _calcYears = YES;
+    _calcMonths = YES;
+    _calcDays = YES;
+    _calcHours = YES;
+    _calcMins = YES;
+    _calcSecs = YES;
+    
     return self;
 }
 
+// Set units in components
+- (NSCalendarUnit) getUnits {
+    NSCalendarUnit unit = 0;
+    if(_calcSecs) {
+        unit = unit | NSSecondCalendarUnit;
+    }
+    if(_calcMins) {
+        unit = unit | NSMinuteCalendarUnit;
+    }
+    if(_calcHours) {
+        unit = unit | NSHourCalendarUnit;
+    }
+    if(_calcDays) {
+        unit = unit | NSDayCalendarUnit;
+    }
+    if(_calcMonths) {
+        unit = unit | NSMonthCalendarUnit;
+    }
+    if(_calcYears) {
+        unit = unit | NSYearCalendarUnit;
+    }
+    return unit;
+}
 
-- (long)intervalYears {
-    units = NSYearCalendarUnit;
-    components = [calendar components:units
+
+- (NSInteger)intervalYears {
+    if (_calcYears) {
+        components = [calendar components:[self getUnits]
                              fromDate:self.startDate
                                toDate:self.endDate
                               options:0];
-    return [components year];
+        return [components year];
+    } else {
+        return 0;
+    }
 }
 
-- (long)intervalMonths {
-    units = NSMonthCalendarUnit;
-    components = [calendar components:units
-                             fromDate:self.startDate
-                               toDate:self.endDate
-                              options:0];
-    return [components month];
+- (NSInteger)intervalMonths {
+    if(_calcMonths) {
+        components = [calendar components:[self getUnits]
+                                 fromDate:self.startDate
+                                   toDate:self.endDate
+                                  options:0];
+        return [components month];
+        
+    } else {
+        return 0;
+    }
 }
 
 
-- (long)intervalDays {
-    units = NSDayCalendarUnit;
-    components = [calendar components:units
-                             fromDate:self.startDate
-                               toDate:self.endDate
-                              options:0];
-    return [components day];    
+- (NSInteger)intervalDays {
+    if (_calcDays) {
+        components = [calendar components:[self getUnits]
+                                 fromDate:self.startDate
+                                   toDate:self.endDate
+                                  options:0];
+        return [components day];
+
+    } else {
+        return 0;
+    }
 }
 
-- (long)intervalHours {
-    units = NSHourCalendarUnit;
-    components = [calendar components:units
-                             fromDate:self.startDate
-                               toDate:self.endDate
-                              options:0];
-    return [components hour];
+- (NSInteger)intervalHours {
+    if (_calcHours) {
+        components = [calendar components:[self getUnits]
+                                 fromDate:self.startDate
+                                   toDate:self.endDate
+                                  options:0];
+        return [components hour];
+
+    } else {
+        return 0;
+    }
 }
 
-- (long)intervalMins {
-    units = NSMinuteCalendarUnit;
-    components = [calendar components:units
-                             fromDate:self.startDate
-                               toDate:self.endDate
-                              options:0];
-    return [components minute];
+- (NSInteger)intervalMins {
+    if (_calcMins) {
+        components = [calendar components:[self getUnits]
+                                 fromDate:self.startDate
+                                   toDate:self.endDate
+                                  options:0];
+        return [components minute];
+
+    } else {
+        return 0;
+    }
 }
 
-- (long)intervalSecs {
-    units = NSSecondCalendarUnit;
-    components = [calendar components:units
-                             fromDate:self.startDate
-                               toDate:self.endDate
-                              options:0];
-    return [components second];
+- (NSInteger)intervalSecs {
+    if (_calcSecs) {
+        components = [calendar components:[self getUnits]
+                                 fromDate:self.startDate
+                                   toDate:self.endDate
+                                  options:0];
+        return [components second];
+
+    } else {
+        return 0;
+    }
 }
 
+/*
+For example, timeIntervalSinceNow gives you the time, in seconds, between the current time and the receiving date object.
+*/
 
 @end
