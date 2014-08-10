@@ -7,6 +7,7 @@
 //
 
 #import "SVKSetDateViewController.h"
+#import <Foundation/NSCalendar.h>
 
 @interface SVKSetDateViewController ()
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
@@ -23,6 +24,24 @@
     self.date = self.timePicker.date;
     self.datePicker.date = self.date;
 }
+/* Today-Now buttonn deleted
+- (IBAction)buttonToday:(id)sender {
+    NSDate *today = [NSDate date]; // Today without time
+    unsigned unitFlagsDateOnly = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit;
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    NSDateComponents *components = [cal components:unitFlagsDateOnly fromDate:today];
+    today = [cal dateFromComponents:components];
+    self.date = today;
+    self.datePicker.date = self.date;
+    self.timePicker.date = today;
+}
+
+- (IBAction)buttonNow:(id)sender {
+    self.date = [NSDate date];
+    self.datePicker.date = self.date;
+    self.timePicker.date = self.date;
+}
+*/
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -70,8 +89,7 @@
     
     if (self.isDateStart) {
         self.datesPeriodViewController.startDate = self.date;
-    }
-    else {
+    } else {
         self.datesPeriodViewController.endDate = self.date;
     }
     

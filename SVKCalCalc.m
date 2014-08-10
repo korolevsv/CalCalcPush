@@ -20,16 +20,18 @@ NSCalendarUnit units = NSSecondCalendarUnit;
 
 - (instancetype)init {
     NSDate *now = [[NSDate alloc] init];
-    NSDate *today; // Today without time
+    NSDate *todayMidnight; // Today midnight (00:00)
+    NSDate *todayMidday; // Today midnight (00:00)
     components = [[NSDateComponents alloc] init];
     unsigned unitFlagsDateOnly = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit;
     NSCalendar *cal = [NSCalendar currentCalendar];
     NSDateComponents *components = [cal components:unitFlagsDateOnly fromDate:now];
-    today = [cal dateFromComponents:components];
-// return today without time
-    return [self initWithDates:today endDate:today
+    todayMidnight = [cal dateFromComponents:components];
+    NSTimeInterval halfDay = 60*60*12;
+    todayMidday = [todayMidnight dateByAddingTimeInterval:halfDay];
+// return today Midnight-Midday
+    return [self initWithDates:todayMidnight endDate:todayMidday
         ];
-//    return [self initWithDates:now endDate:now];
 }
 
 // Designated initializer

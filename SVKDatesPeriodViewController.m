@@ -185,7 +185,7 @@
 //    NSString *text;
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateStyle:NSDateFormatterMediumStyle];
-    [formatter setTimeStyle:NSDateFormatterShortStyle];
+    [formatter setTimeStyle:NSDateFormatterMediumStyle];
 
     self.startDateLabel.text = [formatter stringFromDate:self.startDate];
     self.endDateLabel.text = [formatter stringFromDate:self.endDate];
