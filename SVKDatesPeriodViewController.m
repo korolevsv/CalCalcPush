@@ -10,13 +10,18 @@
 #import "SVKCalCalc.h"
 #import "SVKSetDateViewController.h"
 
+
+
 @interface SVKDatesPeriodViewController ()
 
 @property SVKCalCalc *calCalc;
+@property UIColor *colorTextFieldDefault;
+@property UIColor *colorTextFieldDisabled;
 
 @end
 
 @implementation SVKDatesPeriodViewController
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,6 +39,9 @@
     _calCalc = [[SVKCalCalc alloc] init];
     self.startDate = self.calCalc.startDate;
     self.endDate = self.calCalc.endDate;
+    
+    _colorTextFieldDefault = [UIColor whiteColor];
+    _colorTextFieldDisabled = [UIColor lightGrayColor];
 
     [self updateView];
 }
@@ -59,31 +67,67 @@
 - (IBAction)switchYears:(id)sender {
     UISwitch *sw = sender;
     self.calCalc.calcYears = sw.on;
+    if(sw.on) {
+        self.yearsTextField.backgroundColor = _colorTextFieldDefault;
+    }
+    else {
+        self.yearsTextField.backgroundColor = _colorTextFieldDisabled;
+    }
     [self updateView];
 }
 - (IBAction)switchMonth:(id)sender {
     UISwitch *sw = sender;
     self.calCalc.calcMonths = sw.on;
+    if(sw.on) {
+        self.monthsTextField.backgroundColor = _colorTextFieldDefault;
+    }
+    else {
+        self.monthsTextField.backgroundColor = _colorTextFieldDisabled;
+    }
     [self updateView];
 }
 - (IBAction)switchDay:(id)sender {
     UISwitch *sw = sender;
     self.calCalc.calcDays = sw.on;
+    if(sw.on) {
+        self.daysTextField.backgroundColor = _colorTextFieldDefault;
+    }
+    else {
+        self.daysTextField.backgroundColor = _colorTextFieldDisabled;
+    }
     [self updateView];
 }
 - (IBAction)switchHour:(id)sender {
     UISwitch *sw = sender;
     self.calCalc.calcHours = sw.on;
+    if(sw.on) {
+        self.hoursTextField.backgroundColor = _colorTextFieldDefault;
+    }
+    else {
+        self.hoursTextField.backgroundColor = _colorTextFieldDisabled;
+    }
     [self updateView];
 }
 - (IBAction)switchMin:(id)sender {
     UISwitch *sw = sender;
     self.calCalc.calcMins = sw.on;
+    if(sw.on) {
+        self.minsTextField.backgroundColor = _colorTextFieldDefault;
+    }
+    else {
+        self.minsTextField.backgroundColor = _colorTextFieldDisabled;
+    }
     [self updateView];
 }
 - (IBAction)switchSec:(id)sender {
     UISwitch *sw = sender;
     self.calCalc.calcSecs = sw.on;
+    if(sw.on) {
+        self.secsTextField.backgroundColor = _colorTextFieldDefault;
+    }
+    else {
+        self.secsTextField.backgroundColor = _colorTextFieldDisabled;
+    }
     [self updateView];
 }
 

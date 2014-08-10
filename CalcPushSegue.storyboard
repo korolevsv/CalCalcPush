@@ -19,7 +19,7 @@
             </objects>
             <point key="canvasLocation" x="-106" y="37"/>
         </scene>
-        <!--Dates Period View Controller - Duration-->
+        <!--Dates Period View Controller - Interval-->
         <scene sceneID="OMd-x1-oi8">
             <objects>
                 <viewController id="S0X-Ag-U2Z" customClass="SVKDatesPeriodViewController" sceneMemberID="viewController">
@@ -189,7 +189,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Duration" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U6Z-EU-gnx">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Interval between Dates" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U6Z-EU-gnx">
                                 <rect key="frame" x="20" y="166" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -199,7 +199,7 @@
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <accessibility key="accessibilityConfiguration" label="DatesPeriodView"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Duration" id="edQ-Qb-HkU"/>
+                    <navigationItem key="navigationItem" title="Interval" id="edQ-Qb-HkU"/>
                     <connections>
                         <outlet property="daysTextField" destination="Oxz-t5-WP9" id="Qqp-Lu-hDP"/>
                         <outlet property="endDateLabel" destination="T3G-1r-fyX" id="4Rz-HZ-ayc"/>
