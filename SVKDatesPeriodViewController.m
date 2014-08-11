@@ -19,10 +19,10 @@
 @property UIColor *colorTextFieldDisabled;
 
 
-@property (weak, nonatomic) IBOutlet UILabel *startDateLabel;
-@property (weak, nonatomic) IBOutlet UILabel *endDateLabel;
-@property (weak, nonatomic) IBOutlet UILabel *startTimeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *endTimeLabel;
+@property (weak, nonatomic) IBOutlet UITextField *startDateField;
+@property (weak, nonatomic) IBOutlet UITextField *endDateField;
+@property (weak, nonatomic) IBOutlet UITextField *startTimeField;
+@property (weak, nonatomic) IBOutlet UITextField *endTimeField;
 
 
 @property (weak, nonatomic) IBOutlet UITextField *yearsTextField;
@@ -42,6 +42,12 @@
 @end
 
 @implementation SVKDatesPeriodViewController
+- (IBAction)setStartDateTime:(id)sender {
+    [self performSegueWithIdentifier:@"SetStartDate" sender:self];
+}
+- (IBAction)setEndDateTime:(id)sender {
+    [self performSegueWithIdentifier:@"SetEndDate" sender:self];
+}
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -201,13 +207,13 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateStyle:NSDateFormatterMediumStyle];
     [formatter setTimeStyle:NSDateFormatterNoStyle];
-    self.startDateLabel.text = [formatter stringFromDate:self.startDate];
-    self.endDateLabel.text = [formatter stringFromDate:self.endDate];
+    self.startDateField.text = [formatter stringFromDate:self.startDate];
+    self.endDateField.text = [formatter stringFromDate:self.endDate];
 
     [formatter setDateStyle:NSDateFormatterNoStyle];
     [formatter setTimeStyle:NSDateFormatterMediumStyle];
-    self.startTimeLabel.text = [formatter stringFromDate:self.startDate];
-    self.endTimeLabel.text = [formatter stringFromDate:self.endDate];
+    self.startTimeField.text = [formatter stringFromDate:self.startDate];
+    self.endTimeField.text = [formatter stringFromDate:self.endDate];
     
 // Show Interval
     self.yearsTextField.text = [NSString localizedStringWithFormat:@"%ld", [self.calCalc intervalYears]];
