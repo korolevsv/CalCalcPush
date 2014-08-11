@@ -15,13 +15,5 @@
 @property (nonatomic, strong)NSDate *endDate;
 @property NSTimeInterval intervalBetweenDates;
 //@property SVKCalCalc *@calCalc;
-@property (weak, nonatomic) IBOutlet UILabel *startDateLabel;
-@property (weak, nonatomic) IBOutlet UILabel *endDateLabel;
-@property (weak, nonatomic) IBOutlet UITextField *yearsTextField;
-@property (weak, nonatomic) IBOutlet UITextField *monthsTextField;
-@property (weak, nonatomic) IBOutlet UITextField *daysTextField;
-@property (weak, nonatomic) IBOutlet UITextField *hoursTextField;
-@property (weak, nonatomic) IBOutlet UITextField *minsTextField;
-@property (weak, nonatomic) IBOutlet UITextField *secsTextField;
 
 @end

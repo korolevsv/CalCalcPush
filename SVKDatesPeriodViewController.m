@@ -17,6 +17,21 @@
 @property SVKCalCalc *calCalc;
 @property UIColor *colorTextFieldDefault;
 @property UIColor *colorTextFieldDisabled;
+
+
+@property (weak, nonatomic) IBOutlet UILabel *startDateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *endDateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *startTimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *endTimeLabel;
+
+
+@property (weak, nonatomic) IBOutlet UITextField *yearsTextField;
+@property (weak, nonatomic) IBOutlet UITextField *monthsTextField;
+@property (weak, nonatomic) IBOutlet UITextField *daysTextField;
+@property (weak, nonatomic) IBOutlet UITextField *hoursTextField;
+@property (weak, nonatomic) IBOutlet UITextField *minsTextField;
+@property (weak, nonatomic) IBOutlet UITextField *secsTextField;
+
 @property (weak, nonatomic) IBOutlet UISwitch *switchYears;
 @property (weak, nonatomic) IBOutlet UISwitch *switchMonths;
 @property (weak, nonatomic) IBOutlet UISwitch *switchDays;
@@ -182,14 +197,19 @@
 
 #pragma mark - View fields setting
 - (void) updateView {
-//    NSString *text;
+//    Print start-end date-time:
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateStyle:NSDateFormatterMediumStyle];
-    [formatter setTimeStyle:NSDateFormatterMediumStyle];
-
+    [formatter setTimeStyle:NSDateFormatterNoStyle];
     self.startDateLabel.text = [formatter stringFromDate:self.startDate];
     self.endDateLabel.text = [formatter stringFromDate:self.endDate];
 
+    [formatter setDateStyle:NSDateFormatterNoStyle];
+    [formatter setTimeStyle:NSDateFormatterMediumStyle];
+    self.startTimeLabel.text = [formatter stringFromDate:self.startDate];
+    self.endTimeLabel.text = [formatter stringFromDate:self.endDate];
+    
+// Show Interval
     self.yearsTextField.text = [NSString localizedStringWithFormat:@"%ld", [self.calCalc intervalYears]];
     self.monthsTextField.text = [NSString localizedStringWithFormat:@"%ld", [self.calCalc intervalMonths]];
     self.daysTextField.text = [NSString localizedStringWithFormat:@"%ld", [self.calCalc intervalDays]];
