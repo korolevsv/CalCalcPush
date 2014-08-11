@@ -81,6 +81,10 @@
     // Set Date and Time Pickers
     self.datePicker.date = self.date;
     self.timePicker.date = self.date;
+    if (self.isDateStart)
+        self.navigationItem.title = @"Set Start Date";
+    else
+        self.navigationItem.title = @"Set End Date";
 }
 
 - (void)viewWillDisappear:(BOOL)animated
