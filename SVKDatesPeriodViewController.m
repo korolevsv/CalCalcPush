@@ -186,15 +186,21 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    SVKSetDateViewController *setDateController = (SVKSetDateViewController *)segue.destinationViewController;
-    setDateController.datesPeriodViewController = self;
+//    SVKSetDateViewController *setDateController = (SVKSetDateViewController *)segue.destinationViewController;
+//    setDateController.datesPeriodViewController = self;
 
     // Use the segue to set the date on the view controller DatePickers
     if ([segue.identifier isEqualToString:@"SetStartDate"]) {
+        SVKSetDateViewController *setDateController = (SVKSetDateViewController *)segue.destinationViewController;
+        setDateController.datesPeriodViewController = self;
+
         setDateController.date = self.startDate;
         setDateController.isDateStart = YES;
     }
     else if ([segue.identifier isEqualToString:@"SetEndDate"]) {
+        SVKSetDateViewController *setDateController = (SVKSetDateViewController *)segue.destinationViewController;
+        setDateController.datesPeriodViewController = self;
+
         setDateController.date = self.endDate;
         setDateController.isDateStart = NO;
     }
