@@ -189,8 +189,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="setEndDateTime:" destination="S0X-Ag-U2Z" eventType="touchDown" id="82m-gv-fsp"/>
-                                    <segue destination="yfd-km-fRD" kind="modal" identifier="ModalEndDate" id="ffe-sm-Dqk"/>
+                                    <action selector="pickDate:" destination="S0X-Ag-U2Z" eventType="touchDown" id="upc-cP-52a"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BkN-8h-BjL">
@@ -199,8 +198,8 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="pickStartDate:" destination="S0X-Ag-U2Z" eventType="touchDown" id="h4t-On-6Tt"/>
-                                    <segue destination="yfd-km-fRD" kind="modal" identifier="ModalStartDate" id="BU6-NV-hLQ"/>
+                                    <action selector="pickDate:" destination="S0X-Ag-U2Z" eventType="touchDown" id="vcC-n6-Pfk"/>
+                                    <segue destination="yfd-km-fRD" kind="modal" identifier="ModalDate" id="BU6-NV-hLQ"/>
                                 </connections>
                             </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="cc2-Vz-OPl">
@@ -395,7 +394,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </timeZone>
                             </datePicker>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Set Date" id="tXi-52-Fa1">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="x4h-bO-3OO">
@@ -439,7 +438,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="BU6-NV-hLQ"/>
         <segue reference="lRY-ha-gq2"/>
     </inferredMetricsTieBreakers>
 </document>

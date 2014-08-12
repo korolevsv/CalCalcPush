@@ -15,7 +15,11 @@
 
 @implementation SVKDatePickerViewController
 - (IBAction)doneButton:(id)sender {
-    self.calCalc.startDate = self.DatePicker.date;
+    if (self.isDateStart) {
+        self.calCalc.startDate = self.DatePicker.date;
+    } else {
+        self.calCalc.endDate = self.DatePicker.date;
+    }
     [self.presentingViewController dismissViewControllerAnimated:YES
                                                       completion:nil];
 }
@@ -68,6 +72,7 @@
         self.navigationItem.title = @"Set Start Date";
     } else {
         self.navigationItem.title = @"Set End Date";
+        self.DatePicker.date = self.calCalc.endDate;
     }
 }
 @end
