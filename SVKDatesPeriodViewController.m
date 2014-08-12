@@ -9,6 +9,7 @@
 #import "SVKDatesPeriodViewController.h"
 #import "SVKCalCalc.h"
 #import "SVKSetDateViewController.h"
+#import "SVKDatePickerViewController.h"
 
 
 
@@ -42,6 +43,9 @@
 @end
 
 @implementation SVKDatesPeriodViewController
+- (IBAction)pickStartDate:(id)sender {
+    [self performSegueWithIdentifier:@"ModalStartDate" sender:self];
+}
 - (IBAction)setStartDateTime:(id)sender {
     [self performSegueWithIdentifier:@"SetStartDate" sender:self];
 }
@@ -105,7 +109,10 @@
     self.startDate = dateDebug;
 // End of debug
 */
-    self.calCalc.startDate = self.startDate;
+// Change logic - use calCalc as main storage!!!
+//    self.calCalc.startDate = self.startDate;
+    self.startDate = self.calCalc.startDate;
+
     self.calCalc.endDate = self.endDate;
     
     [self updateView];
@@ -186,10 +193,8 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-//    SVKSetDateViewController *setDateController = (SVKSetDateViewController *)segue.destinationViewController;
-//    setDateController.datesPeriodViewController = self;
-
     // Use the segue to set the date on the view controller DatePickers
+    // Push seque:
     if ([segue.identifier isEqualToString:@"SetStartDate"]) {
         SVKSetDateViewController *setDateController = (SVKSetDateViewController *)segue.destinationViewController;
         setDateController.datesPeriodViewController = self;
@@ -204,6 +209,26 @@
         setDateController.date = self.endDate;
         setDateController.isDateStart = NO;
     }
+    // Modal view:
+ 
+    if ([segue.identifier isEqualToString:@"ModalStartDate"]) {
+        SVKDatePickerViewController *datePickerVController;
+        UINavigationController *navigationController=  (UINavigationController *)segue.destinationViewController;
+        datePickerVController = (SVKDatePickerViewController *)navigationController.topViewController;
+        
+        datePickerVController.isDateStart = YES;
+        datePickerVController.calCalc = self.calCalc;
+    }
+    if ([segue.identifier isEqualToString:@"ModalStartTime"]) {
+        
+    }
+    if ([segue.identifier isEqualToString:@"ModalEndDate"]) {
+        
+    }
+    if ([segue.identifier isEqualToString:@"ModalEndDate"]) {
+        
+    }
+    
 }
 
 

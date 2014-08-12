@@ -6,13 +6,19 @@
 //  Copyright (c) 2014 SelfEducation. All rights reserved.
 //
 
-#import "SVKPickerViewController.h"
+#import "SVKDatePickerViewController.h"
 
-@interface SVKPickerViewController ()
+
+@interface SVKDatePickerViewController ()
 
 @end
 
-@implementation SVKPickerViewController
+@implementation SVKDatePickerViewController
+- (IBAction)doneButton:(id)sender {
+    self.calCalc.startDate = self.DatePicker.date;
+    [self.presentingViewController dismissViewControllerAnimated:YES
+                                                      completion:nil];
+}
 
 - (IBAction)dismiss:(id)sender
 {
@@ -52,5 +58,16 @@
     // Pass the selected object to the new view controller.
 }
 */
-
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    // Set Date Picker
+    if (self.isDateStart) {
+        self.DatePicker.date = self.calCalc.startDate;
+        self.navigationItem.title = @"Set Start Date";
+    } else {
+        self.navigationItem.title = @"Set End Date";
+    }
+}
 @end

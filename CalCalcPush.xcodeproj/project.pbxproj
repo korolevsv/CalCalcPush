@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5313BF4A199A415200A71B2B /* SVKPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5313BF49199A415200A71B2B /* SVKPickerViewController.m */; };
+		5313BF4A199A415200A71B2B /* SVKDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5313BF49199A415200A71B2B /* SVKDatePickerViewController.m */; };
 		539930A51994E1B6006210B4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 539930A41994E1B6006210B4 /* Foundation.framework */; };
 		539930A71994E1B6006210B4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 539930A61994E1B6006210B4 /* CoreGraphics.framework */; };
 		539930A91994E1B6006210B4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 539930A81994E1B6006210B4 /* UIKit.framework */; };
@@ -37,8 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5313BF48199A415200A71B2B /* SVKPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVKPickerViewController.h; sourceTree = "<group>"; };
-		5313BF49199A415200A71B2B /* SVKPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVKPickerViewController.m; sourceTree = "<group>"; };
+		5313BF48199A415200A71B2B /* SVKDatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVKDatePickerViewController.h; sourceTree = "<group>"; };
+		5313BF49199A415200A71B2B /* SVKDatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVKDatePickerViewController.m; sourceTree = "<group>"; };
 		539930A11994E1B6006210B4 /* CalCalcPush.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalCalcPush.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		539930A41994E1B6006210B4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		539930A61994E1B6006210B4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -96,8 +96,8 @@
 				539930DD199516AA006210B4 /* SVKCalCalc.h */,
 				539930DE199516AA006210B4 /* SVKCalCalc.m */,
 				539930D31994E1FB006210B4 /* CalcPushSegue.storyboard */,
-				5313BF48199A415200A71B2B /* SVKPickerViewController.h */,
-				5313BF49199A415200A71B2B /* SVKPickerViewController.m */,
+				5313BF48199A415200A71B2B /* SVKDatePickerViewController.h */,
+				5313BF49199A415200A71B2B /* SVKDatePickerViewController.m */,
 				53D6555F19956CD800C7C4B2 /* SVKSetDateViewController.h */,
 				53D6556019956CD800C7C4B2 /* SVKSetDateViewController.m */,
 				539930AA1994E1B6006210B4 /* CalCalcPush */,
@@ -267,7 +267,7 @@
 				539930D81994EF60006210B4 /* SVKDatesPeriodViewController.m in Sources */,
 				539930B11994E1B6006210B4 /* main.m in Sources */,
 				53D6556119956CD800C7C4B2 /* SVKSetDateViewController.m in Sources */,
-				5313BF4A199A415200A71B2B /* SVKPickerViewController.m in Sources */,
+				5313BF4A199A415200A71B2B /* SVKDatePickerViewController.m in Sources */,
 				539930DF199516AA006210B4 /* SVKCalCalc.m in Sources */,
 				539930B51994E1B6006210B4 /* SVKAppDelegate.m in Sources */,
 			);
