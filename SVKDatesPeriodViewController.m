@@ -111,13 +111,11 @@
 */
 // Change logic - use calCalc as main storage!!!
 //    self.calCalc.startDate = self.startDate;
+    // Restore settings from Date and Time Pickers via calCalc
     self.startDate = self.calCalc.startDate;
+    self.endDate = self.calCalc.endDate;
 
-    self.calCalc.endDate = self.endDate;
-    
     [self updateView];
-    
-    // Restore settings from Date and Time Pickers
 }
 
 #pragma mark - Switch processing
@@ -199,15 +197,17 @@
         SVKSetDateViewController *setDateController = (SVKSetDateViewController *)segue.destinationViewController;
         setDateController.datesPeriodViewController = self;
 
-        setDateController.date = self.startDate;
+//        setDateController.date = self.startDate;
         setDateController.isDateStart = YES;
+        setDateController.calCalc = self.calCalc;
     }
-    else if ([segue.identifier isEqualToString:@"SetEndDate"]) {
+    if ([segue.identifier isEqualToString:@"SetEndDate"]) {
         SVKSetDateViewController *setDateController = (SVKSetDateViewController *)segue.destinationViewController;
         setDateController.datesPeriodViewController = self;
 
-        setDateController.date = self.endDate;
+//        setDateController.date = self.endDate;
         setDateController.isDateStart = NO;
+        setDateController.calCalc = self.calCalc;
     }
     // Modal view:
  

@@ -17,12 +17,22 @@
 
 @implementation SVKSetDateViewController
 - (IBAction)datePickerSet:(id)sender {
-    self.date = self.datePicker.date;
-    self.timePicker.date = self.date;
+    self.timePicker.date = self.datePicker.date;
+    if (self.isDateStart) {
+        self.calCalc.startDate = self.datePicker.date;
+    } else {
+        self.calCalc.endDate = self.datePicker.date;
+    }
+    
 }
 - (IBAction)timePickerSet:(id)sender {
-    self.date = self.timePicker.date;
-    self.datePicker.date = self.date;
+    self.datePicker.date = self.timePicker.date;
+    if (self.isDateStart) {
+        self.calCalc.startDate = self.datePicker.date;
+    } else {
+        self.calCalc.endDate = self.datePicker.date;
+    }
+
 }
 /* Today-Now buttonn deleted
 - (IBAction)buttonToday:(id)sender {
@@ -79,24 +89,27 @@
     [super viewWillAppear:animated];
     
     // Set Date and Time Pickers
-    self.datePicker.date = self.date;
-    self.timePicker.date = self.date;
-    if (self.isDateStart)
+    if (self.isDateStart) {
+        self.datePicker.date = self.calCalc.startDate;
+        self.timePicker.date = self.calCalc.startDate;
         self.navigationItem.title = @"Set Start Date";
-    else
+    } else {
+        self.datePicker.date = self.calCalc.endDate;
+        self.timePicker.date = self.calCalc.endDate;
         self.navigationItem.title = @"Set End Date";
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    
+/*
     if (self.isDateStart) {
         self.datesPeriodViewController.startDate = self.date;
     } else {
         self.datesPeriodViewController.endDate = self.date;
     }
-    
+*/
 }
 
 @end

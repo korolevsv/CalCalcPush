@@ -10,9 +10,9 @@
 #import "SVKCalCalc.h"
 
 @interface SVKDatePickerViewController : UIViewController
+@property SVKCalCalc *calCalc;
 //@property NSDate *date;
 @property (nonatomic) BOOL isDateStart;
-@property SVKCalCalc *calCalc;
 @property (weak, nonatomic) IBOutlet UIDatePicker *DatePicker;
 
 @end
