@@ -1,24 +1,23 @@
 //
-//  SVKPickerViewController.m
+//  SVKTimePickerViewController.m
 //  CalCalcPush
 //
-//  Created by Sergey Korolev on 12.08.14.
+//  Created by Sergey Korolev on 13.08.14.
 //  Copyright (c) 2014 SelfEducation. All rights reserved.
 //
 
-#import "SVKDatePickerViewController.h"
+#import "SVKTimePickerViewController.h"
 
-
-@interface SVKDatePickerViewController ()
+@interface SVKTimePickerViewController ()
 
 @end
 
-@implementation SVKDatePickerViewController
+@implementation SVKTimePickerViewController
 - (IBAction)doneButton:(id)sender {
     if (self.isDateStart) {
-        self.calCalc.startDate = self.DatePicker.date;
+        self.calCalc.startDate = self.timePicker.date;
     } else {
-        self.calCalc.endDate = self.DatePicker.date;
+        self.calCalc.endDate = self.timePicker.date;
     }
     [self dismiss:sender];
 }
@@ -67,11 +66,11 @@
     
     // Set Date Picker
     if (self.isDateStart) {
-        self.DatePicker.date = self.calCalc.startDate;
-        self.navigationItem.title = @"Set Start Date";
+        self.timePicker.date = self.calCalc.startDate;
+        self.navigationItem.title = @"Set Start Time";
     } else {
-        self.navigationItem.title = @"Set End Date";
-        self.DatePicker.date = self.calCalc.endDate;
+        self.navigationItem.title = @"Set End Time";
+        self.timePicker.date = self.calCalc.endDate;
     }
 }
 @end

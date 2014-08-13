@@ -10,7 +10,7 @@
 #import "SVKCalCalc.h"
 #import "SVKSetDateViewController.h"
 #import "SVKDatePickerViewController.h"
-
+#import "SVKTimePickerViewController.h"
 
 
 @interface SVKDatesPeriodViewController ()
@@ -46,14 +46,8 @@
 - (IBAction)pickDate:(id)sender {
     [self performSegueWithIdentifier:@"ModalDate" sender:sender];
 }
-- (IBAction)pickEndDate:(id)sender {
-    [self performSegueWithIdentifier:@"ModalEndDate" sender:self];
-}
-- (IBAction)setStartDateTime:(id)sender {
-    [self performSegueWithIdentifier:@"SetStartDate" sender:self];
-}
-- (IBAction)setEndDateTime:(id)sender {
-    [self performSegueWithIdentifier:@"SetEndDate" sender:self];
+- (IBAction)pickTime:(id)sender {
+    [self performSegueWithIdentifier:@"ModalTime" sender:sender];
 }
 
 
@@ -215,9 +209,8 @@
     // Modal view:
  
     if ([segue.identifier isEqualToString:@"ModalDate"]) {
-        SVKDatePickerViewController *datePickerVController;
         UINavigationController *navigationController=  (UINavigationController *)segue.destinationViewController;
-        datePickerVController = (SVKDatePickerViewController *)navigationController.topViewController;
+        SVKDatePickerViewController *datePickerVController = (SVKDatePickerViewController *)navigationController.topViewController;
         if (sender == self.startDateField) {
             datePickerVController.isDateStart = YES;
         } else if (sender == self.endDateField) {
@@ -225,22 +218,16 @@
         }
         datePickerVController.calCalc = self.calCalc;
     }
-    if ([segue.identifier isEqualToString:@"ModalStartTime"]) {
-        
-    }
-    if ([segue.identifier isEqualToString:@"ModalEndDate"]) {
-        SVKDatePickerViewController *datePickerVController;
+    if ([segue.identifier isEqualToString:@"ModalTime"]) {
         UINavigationController *navigationController=  (UINavigationController *)segue.destinationViewController;
-        datePickerVController = (SVKDatePickerViewController *)navigationController.topViewController;
-        
-        datePickerVController.isDateStart = NO;
-        datePickerVController.calCalc = self.calCalc;
-        
+        SVKTimePickerViewController *timePickerVController = (SVKTimePickerViewController *)navigationController.topViewController;
+        if (sender == self.startTimeField) {
+            timePickerVController.isDateStart = YES;
+        } else if (sender == self.endTimeField) {
+            timePickerVController.isDateStart = NO;
+        }
+        timePickerVController.calCalc = self.calCalc;
     }
-    if ([segue.identifier isEqualToString:@"ModalEndDate"]) {
-        
-    }
-    
 }
 
 
