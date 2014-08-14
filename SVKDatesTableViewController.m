@@ -9,12 +9,30 @@
 #import "SVKDatesTableViewController.h"
 #import "SVKDate.h"
 #import "SVKDateStore.h"
+#import "SVKDetailViewController.h"
+
 
 @interface SVKDatesTableViewController ()
 
 @end
 
 @implementation SVKDatesTableViewController
+
+- (IBAction)addNewItem:(id)sender
+{
+    // Create a new BNRItem and add it to the store
+    SVKDate *newDate = [[SVKDateStore sharedStore] createDate];
+    
+    // Figure out where that item is in the array
+    NSInteger lastRow = [[[SVKDateStore sharedStore] allDates] indexOfObject:newDate];
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
+    
+    // Insert this new row into the table.
+    [self.tableView insertRowsAtIndexPaths:@[indexPath]
+                          withRowAnimation:UITableViewRowAnimationTop];
+}
+
 
 // Make init the Designated initializer:
 - (instancetype)init
@@ -43,11 +61,6 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    if (self) {
-        for (int i=0; i<5; i++) {
-            [[SVKDateStore sharedStore] createDate];
-        }
-    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -91,6 +104,16 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView
+didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    SVKDetailViewController *detailViewController =
+    [[SVKDetailViewController alloc] init];
+    
+    // Push it onto the top of the navigation controller's stack
+    [self.navigationController pushViewController:detailViewController
+                                         animated:YES];
+}
 
 /*
 // Override to support conditional editing of the table view.

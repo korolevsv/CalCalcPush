@@ -65,6 +65,27 @@
     
     return date;
 }
+- (void)removeDate:(SVKDate *)date
+{
+    [self.privateDates removeObjectIdenticalTo:date];
+}
+
+- (void)moveDateAtIndex:(NSUInteger)fromIndex
+                toIndex:(NSUInteger)toIndex
+{
+    if (fromIndex == toIndex) {
+        return;
+    }
+    // Get pointer to object being moved so you can re-insert it
+    SVKDate *date = self.privateDates[fromIndex];
+    
+    // Remove item from array
+    [self.privateDates removeObjectAtIndex:fromIndex];
+    
+    // Insert item in array at new location
+    [self.privateDates insertObject:date atIndex:toIndex];
+}
+
 
 @end
 

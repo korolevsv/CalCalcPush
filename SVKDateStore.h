@@ -16,5 +16,9 @@
 
 + (instancetype) sharedStore;
 - (SVKDate *) createDate;
+- (void)removeDate:(SVKDate *)date;
+- (void)moveDateAtIndex:(NSUInteger)fromIndex
+                toIndex:(NSUInteger)toIndex;
+
 
 @end

@@ -287,7 +287,13 @@
                             <outlet property="delegate" destination="gw1-LY-r17" id="O5W-Xu-TtF"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Choose Date" id="Vhq-Qp-RKR"/>
+                    <navigationItem key="navigationItem" title="Choose Date" id="Vhq-Qp-RKR">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="AxD-YB-2Qf">
+                            <connections>
+                                <action selector="addNewItem:" destination="gw1-LY-r17" id="Tvc-m5-97h"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dGq-C6-OIg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
