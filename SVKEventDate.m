@@ -1,16 +1,18 @@
 //
-//  SVKDate.h
+//  SVKDate.m
 //  CalCalcPush
 //
 //  Created by Sergey Korolev on 14.08.14.
 //  Copyright (c) 2014 SelfEducation. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "SVKEventDate.h"
 
-@interface SVKDate : NSObject
+@implementation SVKEventDate
 
-@property NSString *name;
-@property NSDate *date;
+- (NSString *) description
+{
+    return self.name;
+}
 
 @end

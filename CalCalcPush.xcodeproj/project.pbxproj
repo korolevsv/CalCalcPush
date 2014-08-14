@@ -27,7 +27,7 @@
 		53F2CB06199D384B0043088E /* SVKDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F2CB04199D384B0043088E /* SVKDetailViewController.m */; };
 		53F2CB07199D384B0043088E /* SVKDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53F2CB05199D384B0043088E /* SVKDetailViewController.xib */; };
 		53F352D2199CCE8400809FE8 /* SVKDatesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F352D1199CCE8400809FE8 /* SVKDatesTableViewController.m */; };
-		53F352D5199CD1C200809FE8 /* SVKDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F352D4199CD1C200809FE8 /* SVKDate.m */; };
+		53F352D5199CD1C200809FE8 /* SVKEventDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F352D4199CD1C200809FE8 /* SVKEventDate.m */; };
 		53F352D8199CD29900809FE8 /* SVKDateStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F352D7199CD29900809FE8 /* SVKDateStore.m */; };
 /* End PBXBuildFile section */
 
@@ -72,8 +72,8 @@
 		53F2CB05199D384B0043088E /* SVKDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SVKDetailViewController.xib; sourceTree = "<group>"; };
 		53F352D0199CCE8400809FE8 /* SVKDatesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVKDatesTableViewController.h; sourceTree = "<group>"; };
 		53F352D1199CCE8400809FE8 /* SVKDatesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVKDatesTableViewController.m; sourceTree = "<group>"; };
-		53F352D3199CD1C200809FE8 /* SVKDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVKDate.h; sourceTree = "<group>"; };
-		53F352D4199CD1C200809FE8 /* SVKDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVKDate.m; sourceTree = "<group>"; };
+		53F352D3199CD1C200809FE8 /* SVKEventDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVKEventDate.h; sourceTree = "<group>"; };
+		53F352D4199CD1C200809FE8 /* SVKEventDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVKEventDate.m; sourceTree = "<group>"; };
 		53F352D6199CD29900809FE8 /* SVKDateStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVKDateStore.h; sourceTree = "<group>"; };
 		53F352D7199CD29900809FE8 /* SVKDateStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVKDateStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,10 +108,10 @@
 				53F2CB03199D384B0043088E /* SVKDetailViewController.h */,
 				53F2CB04199D384B0043088E /* SVKDetailViewController.m */,
 				53F2CB05199D384B0043088E /* SVKDetailViewController.xib */,
-				53F352D3199CD1C200809FE8 /* SVKDate.h */,
+				53F352D3199CD1C200809FE8 /* SVKEventDate.h */,
 				53F352D6199CD29900809FE8 /* SVKDateStore.h */,
 				53F352D7199CD29900809FE8 /* SVKDateStore.m */,
-				53F352D4199CD1C200809FE8 /* SVKDate.m */,
+				53F352D4199CD1C200809FE8 /* SVKEventDate.m */,
 				53F352D0199CCE8400809FE8 /* SVKDatesTableViewController.h */,
 				53F352D1199CCE8400809FE8 /* SVKDatesTableViewController.m */,
 				539930D61994EF60006210B4 /* SVKDatesPeriodViewController.h */,
@@ -296,7 +296,7 @@
 				53F352D2199CCE8400809FE8 /* SVKDatesTableViewController.m in Sources */,
 				53DB5809199B583300F926B2 /* SVKTimePickerViewController.m in Sources */,
 				539930DF199516AA006210B4 /* SVKCalCalc.m in Sources */,
-				53F352D5199CD1C200809FE8 /* SVKDate.m in Sources */,
+				53F352D5199CD1C200809FE8 /* SVKEventDate.m in Sources */,
 				539930B51994E1B6006210B4 /* SVKAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

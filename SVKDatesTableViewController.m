@@ -7,7 +7,7 @@
 //
 
 #import "SVKDatesTableViewController.h"
-#import "SVKDate.h"
+#import "SVKEventDate.h"
 #import "SVKDateStore.h"
 #import "SVKDetailViewController.h"
 
@@ -21,7 +21,7 @@
 - (IBAction)addNewItem:(id)sender
 {
     // Create a new BNRItem and add it to the store
-    SVKDate *newDate = [[SVKDateStore sharedStore] createDate];
+    SVKEventDate *newDate = [[SVKDateStore sharedStore] createDate];
     
     // Figure out where that item is in the array
     NSInteger lastRow = [[[SVKDateStore sharedStore] allDates] indexOfObject:newDate];
@@ -69,6 +69,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+}
+
 #pragma mark - Table view data source
 /*
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -98,7 +104,7 @@
     // that is at the nth index of items, where n = row this cell
     // will appear in on the tableview
     NSArray *dates = [[SVKDateStore sharedStore] allDates];
-    SVKDate *date = dates[indexPath.row];
+    SVKEventDate *date = dates[indexPath.row];
     
     cell.textLabel.text = [date description];
     return cell;
@@ -109,7 +115,10 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     SVKDetailViewController *detailViewController =
     [[SVKDetailViewController alloc] init];
-    
+    NSArray *dates = [[SVKDateStore sharedStore] allDates];
+    SVKEventDate *selectedDate = dates[indexPath.row];
+    detailViewController.date = selectedDate;
+        
     // Push it onto the top of the navigation controller's stack
     [self.navigationController pushViewController:detailViewController
                                          animated:YES];

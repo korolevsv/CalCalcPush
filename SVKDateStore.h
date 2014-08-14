@@ -8,15 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-@class SVKDate;
+@class SVKEventDate;
 
 @interface SVKDateStore : NSObject
 
 @property (nonatomic, readonly) NSArray *allDates;
 
 + (instancetype) sharedStore;
-- (SVKDate *) createDate;
-- (void)removeDate:(SVKDate *)date;
+- (SVKEventDate *) createDate;
+- (void)removeDate:(SVKEventDate *)date;
 - (void)moveDateAtIndex:(NSUInteger)fromIndex
                 toIndex:(NSUInteger)toIndex;
 

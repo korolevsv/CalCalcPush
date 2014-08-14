@@ -7,7 +7,7 @@
 //
 
 #import "SVKDateStore.h"
-#import "SVKDate.h"
+#import "SVKEventDate.h"
 
 @interface SVKDateStore()
 
@@ -50,14 +50,15 @@
     return self;
 }
 
+
 - (NSArray *) allDates
 {
     return self.privateDates;
 }
 
-- (SVKDate *) createDate
+- (SVKEventDate *) createDate
 {
-    SVKDate * date = [[SVKDate alloc] init];
+    SVKEventDate * date = [[SVKEventDate alloc] init];
     date.name = @"New Date";
     date.date = [[NSDate alloc] init];
     
@@ -65,7 +66,7 @@
     
     return date;
 }
-- (void)removeDate:(SVKDate *)date
+- (void)removeDate:(SVKEventDate *)date
 {
     [self.privateDates removeObjectIdenticalTo:date];
 }
@@ -77,7 +78,7 @@
         return;
     }
     // Get pointer to object being moved so you can re-insert it
-    SVKDate *date = self.privateDates[fromIndex];
+    SVKEventDate *date = self.privateDates[fromIndex];
     
     // Remove item from array
     [self.privateDates removeObjectAtIndex:fromIndex];

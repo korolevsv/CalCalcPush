@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class SVKEventDate;
 
 @interface SVKDetailViewController : UIViewController
+
+@property (strong, nonatomic) SVKEventDate *date;
 
 @end
