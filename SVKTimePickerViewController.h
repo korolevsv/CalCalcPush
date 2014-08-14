@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SVKCalCalc.h"
+
+//#import "SVKCalCalc.h"
+@class SVKCalCalc;
 
 @interface SVKTimePickerViewController : UIViewController
 
