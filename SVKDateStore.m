@@ -60,15 +60,15 @@
 {
     SVKEventDate * date = [[SVKEventDate alloc] init];
     date.name = @"New Date";
-    date.date = [[NSDate alloc] init];
+    date.eDate = [[NSDate alloc] init];
     
     [self.privateDates addObject:date];
     
     return date;
 }
-- (void)removeDate:(SVKEventDate *)date
+- (void)removeDate:(SVKEventDate *)eDate
 {
-    [self.privateDates removeObjectIdenticalTo:date];
+    [self.privateDates removeObjectIdenticalTo:eDate];
 }
 
 - (void)moveDateAtIndex:(NSUInteger)fromIndex

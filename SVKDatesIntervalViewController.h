@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 //#import "SVKCalCalc.h"
 
-@interface SVKDatesPeriodViewController : UIViewController
+@interface SVKDatesIntervalViewController : UIViewController
 
 @property (nonatomic, strong)NSDate *startDate;
 @property (nonatomic, strong)NSDate *endDate;

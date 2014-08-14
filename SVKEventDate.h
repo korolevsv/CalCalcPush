@@ -11,6 +11,6 @@
 @interface SVKEventDate : NSObject
 
 @property NSString *name;
-@property NSDate *date;
+@property NSDate *eDate;
 
 @end

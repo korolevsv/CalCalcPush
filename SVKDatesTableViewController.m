@@ -113,11 +113,12 @@
 - (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //Later make this method to return selected EventDate to DatesIntervalView !!!
     SVKDetailViewController *detailViewController =
     [[SVKDetailViewController alloc] init];
     NSArray *dates = [[SVKDateStore sharedStore] allDates];
     SVKEventDate *selectedDate = dates[indexPath.row];
-    detailViewController.date = selectedDate;
+    detailViewController.eDate = selectedDate;
         
     // Push it onto the top of the navigation controller's stack
     [self.navigationController pushViewController:detailViewController
@@ -133,18 +134,23 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 }
 */
 
-/*
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
+        NSArray *eDates = [[SVKDateStore sharedStore] allDates];
+        SVKEventDate *eDate = eDates[indexPath.row];
+        [[SVKDateStore sharedStore] removeDate:eDate];
+        
+        // Also remove that row from the table view with an animation
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
+
 
 /*
 // Override to support rearranging the table view.

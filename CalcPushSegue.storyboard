@@ -19,10 +19,10 @@
             </objects>
             <point key="canvasLocation" x="-106" y="37"/>
         </scene>
-        <!--Dates Period View Controller - Interval-->
+        <!--Dates Interval View Controller - Interval-->
         <scene sceneID="OMd-x1-oi8">
             <objects>
-                <viewController id="S0X-Ag-U2Z" customClass="SVKDatesPeriodViewController" sceneMemberID="viewController">
+                <viewController id="S0X-Ag-U2Z" customClass="SVKDatesIntervalViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LqT-Sd-lIX"/>
                         <viewControllerLayoutGuide type="bottom" id="QQC-vs-uDd"/>
@@ -217,7 +217,7 @@
                         <accessibility key="accessibilityConfiguration" label="DatesPeriodView"/>
                     </view>
                     <navigationItem key="navigationItem" title="Interval" id="edQ-Qb-HkU">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="BKX-GZ-27s">
+                        <barButtonItem key="leftBarButtonItem" id="BKX-GZ-27s">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="AeT-zd-Q2t">
                                 <rect key="frame" x="16" y="5" width="71" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -230,7 +230,7 @@
                                 </connections>
                             </button>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="Hlr-zq-Pav">
+                        <barButtonItem key="rightBarButtonItem" id="Hlr-zq-Pav">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Udz-Mh-jOL">
                                 <rect key="frame" x="233" y="5" width="71" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -273,7 +273,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="5Ac-YD-IaS">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TableCellID" id="5Ac-YD-IaS">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5Ac-YD-IaS" id="JZY-qa-KkJ">

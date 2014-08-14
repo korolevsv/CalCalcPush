@@ -6,14 +6,14 @@
 //  Copyright (c) 2014 SelfEducation. All rights reserved.
 //
 
-#import "SVKDatesPeriodViewController.h"
+#import "SVKDatesIntervalViewController.h"
 #import "SVKCalCalc.h"
 #import "SVKSetDateViewController.h"
 #import "SVKDatePickerViewController.h"
 #import "SVKTimePickerViewController.h"
 
 
-@interface SVKDatesPeriodViewController ()
+@interface SVKDatesIntervalViewController ()
 
 @property SVKCalCalc *calCalc;
 @property UIColor *colorTextFieldDefault;
@@ -42,7 +42,7 @@
 
 @end
 
-@implementation SVKDatesPeriodViewController
+@implementation SVKDatesIntervalViewController
 - (IBAction)pickDate:(id)sender {
     [self performSegueWithIdentifier:@"ModalDate" sender:sender];
 }

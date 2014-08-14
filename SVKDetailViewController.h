@@ -11,6 +11,6 @@
 
 @interface SVKDetailViewController : UIViewController
 
-@property (strong, nonatomic) SVKEventDate *date;
+@property (strong, nonatomic) SVKEventDate *eDate;
 
 @end

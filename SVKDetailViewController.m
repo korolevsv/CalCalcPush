@@ -8,6 +8,7 @@
 
 #import "SVKDetailViewController.h"
 #import "SVKEventDate.h"
+#import "SVKDateStore.h"
 
 @interface SVKDetailViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
@@ -17,12 +18,37 @@
 @end
 
 @implementation SVKDetailViewController
+- (IBAction)deleteButton:(id)sender {
+//    self.eDate = nil;
+    [[SVKDateStore sharedStore] removeDate:self.eDate];
+    // For some reason View Controller do not been dismissed :(
+    [self.presentingViewController dismissViewControllerAnimated:(YES) completion:nil];
+}
+
+- (instancetype)init
+{
+    self = [super init];
+    /* Use this to set a common navigation item name for the view
+    if (self) {
+        UINavigationItem *navItem = self.navigationItem;
+        navItem.title = @"Details";
+    }
+     */
+    return self;
+}
+
+// Set navigation item name as an EventDate.name
+-(void)setEDate:(SVKEventDate *)eDate
+{
+    _eDate = eDate;
+    self.navigationItem.title = _eDate.name;    
+}
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
-    SVKEventDate *date = self.date;
+    SVKEventDate *date = self.eDate;
     self.nameField.text = date.name;
     
     // You need an NSDateFormatter that will turn a date into a simple date string
@@ -34,7 +60,7 @@
     }
     
     // Use filtered NSDate object to set dateLabel contents
-    self.dateField.text = [dateFormatter stringFromDate:date.date];
+    self.dateField.text = [dateFormatter stringFromDate:date.eDate];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -45,8 +71,10 @@
     [self.view endEditing:YES];
     
     // "Save" changes to item
-    SVKEventDate *date = self.date;
-    date.name = self.nameField.text;
+    SVKEventDate *eDate = self.eDate;
+    if(eDate) {
+        eDate.name = self.nameField.text;
+    }
 }
 
 @end
