@@ -10,7 +10,8 @@
 #import "SVKEventDate.h"
 #import "SVKDateStore.h"
 
-@interface SVKDetailViewController ()
+@interface SVKDetailViewController () <UITextFieldDelegate>
+
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *dateField;
 @property (weak, nonatomic) IBOutlet UITextField *timeField;
@@ -18,6 +19,15 @@
 @end
 
 @implementation SVKDetailViewController
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+- (IBAction)backgroundTapped:(id)sender {
+    [self.view endEditing:YES];
+}
 
 - (instancetype)init
 {

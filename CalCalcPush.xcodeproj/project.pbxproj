@@ -153,6 +153,7 @@
 		539930AA1994E1B6006210B4 /* CalCalcPush */ = {
 			isa = PBXGroup;
 			children = (
+				53BC0C8B199E3C6600BD771A /* iPad */,
 				539930B31994E1B6006210B4 /* SVKAppDelegate.h */,
 				539930B41994E1B6006210B4 /* SVKAppDelegate.m */,
 				539930B61994E1B6006210B4 /* Images.xcassets */,
@@ -188,6 +189,13 @@
 				539930C61994E1B6006210B4 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		53BC0C8B199E3C6600BD771A /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = iPad;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -417,7 +425,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CalCalcPush/CalCalcPush-Prefix.pch";
 				INFOPLIST_FILE = "CalCalcPush/CalCalcPush-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -430,7 +440,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CalCalcPush/CalCalcPush-Prefix.pch";
 				INFOPLIST_FILE = "CalCalcPush/CalCalcPush-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
