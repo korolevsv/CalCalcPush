@@ -18,12 +18,6 @@
 @end
 
 @implementation SVKDetailViewController
-- (IBAction)deleteButton:(id)sender {
-//    self.eDate = nil;
-    [[SVKDateStore sharedStore] removeDate:self.eDate];
-    // For some reason View Controller do not been dismissed :(
-    [self.presentingViewController dismissViewControllerAnimated:(YES) completion:nil];
-}
 
 - (instancetype)init
 {

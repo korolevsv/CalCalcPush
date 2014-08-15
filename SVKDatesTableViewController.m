@@ -39,10 +39,10 @@
 {
     // Call the superclass's designated initializer
     self = [super initWithStyle:UITableViewStylePlain];
-    
 
     return self;
 }
+
 
 
 - (instancetype)initWithStyle:(UITableViewStyle)style
@@ -59,8 +59,8 @@
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    self.navigationItem.title = @"Events";
 }
 
 - (void)didReceiveMemoryWarning
@@ -152,12 +152,13 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 }
 
 
-/*
+
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
+    [[SVKDateStore sharedStore] moveDateAtIndex:fromIndexPath.row toIndex:toIndexPath.row];
 }
-*/
+
 
 /*
 // Override to support conditional rearranging of the table view.

@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="dIA-zn-Qxi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="kvO-6i-TvQ">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="Pml-vp-dKR">
+        <!--Tab Bar Controller-->
+        <scene sceneID="SAC-sa-jy0">
             <objects>
-                <navigationController definesPresentationContext="YES" id="dIA-zn-Qxi" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="CKo-Jy-Udl">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
+                <tabBarController definesPresentationContext="YES" id="kvO-6i-TvQ" sceneMemberID="viewController">
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Xjk-rH-6fG">
+                        <rect key="frame" x="129" y="330" width="163" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
                     <connections>
-                        <segue destination="S0X-Ag-U2Z" kind="relationship" relationship="rootViewController" id="3jF-6E-GFY"/>
+                        <segue destination="S0X-Ag-U2Z" kind="relationship" relationship="viewControllers" id="K6F-8C-hLG"/>
+                        <segue destination="oEs-3Z-hwl" kind="relationship" relationship="viewControllers" id="bxE-Ed-DYX"/>
                     </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EXf-ow-L7W" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9H2-MM-Fce" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-106" y="37"/>
+            <point key="canvasLocation" x="-201" y="372"/>
         </scene>
         <!--Dates Interval View Controller - Interval-->
         <scene sceneID="OMd-x1-oi8">
@@ -216,31 +220,8 @@
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <accessibility key="accessibilityConfiguration" label="DatesPeriodView"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Interval" id="edQ-Qb-HkU">
-                        <barButtonItem key="leftBarButtonItem" id="BKX-GZ-27s">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="AeT-zd-Q2t">
-                                <rect key="frame" x="16" y="5" width="71" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Start Date">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="gw1-LY-r17" kind="push" id="3O3-CH-YLy"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" id="Hlr-zq-Pav">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Udz-Mh-jOL">
-                                <rect key="frame" x="233" y="5" width="71" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="End Date"/>
-                                <connections>
-                                    <segue destination="gw1-LY-r17" kind="push" id="cph-0c-Luz"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
+                    <tabBarItem key="tabBarItem" title="Interval" id="QGx-Ih-gAf"/>
+                    <navigationItem key="navigationItem" title="Interval" id="edQ-Qb-HkU"/>
                     <connections>
                         <outlet property="daysTextField" destination="Oxz-t5-WP9" id="Qqp-Lu-hDP"/>
                         <outlet property="endDateField" destination="L2H-Bb-Hn3" id="BdC-Xh-siJ"/>
@@ -263,6 +244,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="owO-zi-9Kl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="351" y="38"/>
+        </scene>
+        <!--Navigation Controller - Item-->
+        <scene sceneID="jeh-dF-Twa">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="oEs-3Z-hwl" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="tj4-et-lvi"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="feh-aD-iKV">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="gw1-LY-r17" kind="relationship" relationship="rootViewController" id="MTI-yQ-uYC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SWP-Ru-uKZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="351" y="766"/>
         </scene>
         <!--Dates Table View Controller - Choose Date-->
         <scene sceneID="swX-Vc-NRO">
@@ -287,6 +284,7 @@
                             <outlet property="delegate" destination="gw1-LY-r17" id="O5W-Xu-TtF"/>
                         </connections>
                     </tableView>
+                    <tabBarItem key="tabBarItem" title="Events" id="Bmv-nE-PdK"/>
                     <navigationItem key="navigationItem" title="Choose Date" id="Vhq-Qp-RKR">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="AxD-YB-2Qf">
                             <connections>
@@ -297,7 +295,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dGq-C6-OIg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="728" y="38"/>
+            <point key="canvasLocation" x="837" y="766"/>
         </scene>
         <!--Date Picker View Controller - Set Date-->
         <scene sceneID="Z75-vD-2sJ">
@@ -360,7 +358,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="itu-iN-Ulb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="775" y="803"/>
+            <point key="canvasLocation" x="1263" y="-631"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MEb-ac-11s">
@@ -375,7 +373,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8ad-2D-z2i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="344" y="803"/>
+            <point key="canvasLocation" x="837" y="-631"/>
         </scene>
         <!--Time Picker View Controller - Set Time-->
         <scene sceneID="XbB-8e-lpB">
@@ -438,7 +436,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jhe-Sb-JWm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="775" y="1506"/>
+            <point key="canvasLocation" x="1263" y="38"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Voc-UP-uAa">
@@ -453,7 +451,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mZL-eo-1fz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="351" y="1506"/>
+            <point key="canvasLocation" x="837" y="38"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -461,7 +459,4 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="cph-0c-Luz"/>
-    </inferredMetricsTieBreakers>
 </document>
