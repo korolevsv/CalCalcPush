@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SVKEventDate : NSObject
+@interface SVKEvent : NSObject <NSCoding>
 
-@property NSString *name;
-@property NSDate *eDate;
+@property NSString *eventName;
+@property NSDate *eventDate;
 
 @end

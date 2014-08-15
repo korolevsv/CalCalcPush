@@ -7,8 +7,8 @@
 //
 
 #import "SVKDetailViewController.h"
-#import "SVKEventDate.h"
-#import "SVKDateStore.h"
+#import "SVKEvent.h"
+#import "SVKEventStore.h"
 
 @interface SVKDetailViewController () <UITextFieldDelegate>
 
@@ -42,18 +42,18 @@
 }
 
 // Set navigation item name as an EventDate.name
--(void)setEDate:(SVKEventDate *)eDate
+-(void)setEDate:(SVKEvent *)eDate
 {
     _eDate = eDate;
-    self.navigationItem.title = _eDate.name;    
+    self.navigationItem.title = _eDate.eventName;    
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
-    SVKEventDate *date = self.eDate;
-    self.nameField.text = date.name;
+    SVKEvent *date = self.eDate;
+    self.nameField.text = date.eventName;
     
     // You need an NSDateFormatter that will turn a date into a simple date string
     static NSDateFormatter *dateFormatter = nil;
@@ -64,7 +64,7 @@
     }
     
     // Use filtered NSDate object to set dateLabel contents
-    self.dateField.text = [dateFormatter stringFromDate:date.eDate];
+    self.dateField.text = [dateFormatter stringFromDate:date.eventDate];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -75,9 +75,9 @@
     [self.view endEditing:YES];
     
     // "Save" changes to item
-    SVKEventDate *eDate = self.eDate;
+    SVKEvent *eDate = self.eDate;
     if(eDate) {
-        eDate.name = self.nameField.text;
+        eDate.eventName = self.nameField.text;
     }
 }
 

@@ -7,8 +7,8 @@
 //
 
 #import "SVKDatesTableViewController.h"
-#import "SVKEventDate.h"
-#import "SVKDateStore.h"
+#import "SVKEvent.h"
+#import "SVKEventStore.h"
 #import "SVKDetailViewController.h"
 
 
@@ -21,10 +21,10 @@
 - (IBAction)addNewItem:(id)sender
 {
     // Create a new BNRItem and add it to the store
-    SVKEventDate *newDate = [[SVKDateStore sharedStore] createDate];
+    SVKEvent *newDate = [[SVKEventStore sharedStore] createEvent];
     
     // Figure out where that item is in the array
-    NSInteger lastRow = [[[SVKDateStore sharedStore] allDates] indexOfObject:newDate];
+    NSInteger lastRow = [[[SVKEventStore sharedStore] allDates] indexOfObject:newDate];
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
     
@@ -88,7 +88,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    int i = [[[SVKDateStore sharedStore] allDates] count];
+    int i = [[[SVKEventStore sharedStore] allDates] count];
     return i;
 }
 
@@ -103,8 +103,8 @@
     // Set the text on the cell with the description of the item
     // that is at the nth index of items, where n = row this cell
     // will appear in on the tableview
-    NSArray *dates = [[SVKDateStore sharedStore] allDates];
-    SVKEventDate *date = dates[indexPath.row];
+    NSArray *dates = [[SVKEventStore sharedStore] allDates];
+    SVKEvent *date = dates[indexPath.row];
     
     cell.textLabel.text = [date description];
     return cell;
@@ -116,8 +116,8 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
     //Later make this method to return selected EventDate to DatesIntervalView !!!
     SVKDetailViewController *detailViewController =
     [[SVKDetailViewController alloc] init];
-    NSArray *dates = [[SVKDateStore sharedStore] allDates];
-    SVKEventDate *selectedDate = dates[indexPath.row];
+    NSArray *dates = [[SVKEventStore sharedStore] allDates];
+    SVKEvent *selectedDate = dates[indexPath.row];
     detailViewController.eDate = selectedDate;
         
     // Push it onto the top of the navigation controller's stack
@@ -140,9 +140,9 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        NSArray *eDates = [[SVKDateStore sharedStore] allDates];
-        SVKEventDate *eDate = eDates[indexPath.row];
-        [[SVKDateStore sharedStore] removeDate:eDate];
+        NSArray *eDates = [[SVKEventStore sharedStore] allDates];
+        SVKEvent *eDate = eDates[indexPath.row];
+        [[SVKEventStore sharedStore] removeEvent:eDate];
         
         // Also remove that row from the table view with an animation
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
@@ -156,7 +156,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
-    [[SVKDateStore sharedStore] moveDateAtIndex:fromIndexPath.row toIndex:toIndexPath.row];
+    [[SVKEventStore sharedStore] moveEventAtIndex:fromIndexPath.row toIndex:toIndexPath.row];
 }
 
 
