@@ -13,4 +13,7 @@
 @property NSString *eventName;
 @property NSDate *eventDate;
 
+- (NSString *) dateDescription;
+- (NSString *) timeDescription;
+
 @end

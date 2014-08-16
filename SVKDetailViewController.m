@@ -42,19 +42,19 @@
 }
 
 // Set navigation item name as an EventDate.name
--(void)setEDate:(SVKEvent *)eDate
+-(void)setEventTitle:(SVKEvent *)event
 {
-    _eDate = eDate;
-    self.navigationItem.title = _eDate.eventName;    
+    _event = event;
+    self.navigationItem.title = _event.eventName;    
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
-    SVKEvent *date = self.eDate;
-    self.nameField.text = date.eventName;
-    
+    SVKEvent *event = self.event;
+    self.nameField.text = event.eventName;
+/*
     // You need an NSDateFormatter that will turn a date into a simple date string
     static NSDateFormatter *dateFormatter = nil;
     if (!dateFormatter) {
@@ -64,7 +64,10 @@
     }
     
     // Use filtered NSDate object to set dateLabel contents
-    self.dateField.text = [dateFormatter stringFromDate:date.eventDate];
+ self.dateField.text = [dateFormatter stringFromDate:date.eventDate];
+*/
+    self.dateField.text = [event dateDescription];
+    self.timeField.text = [event timeDescription];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -75,7 +78,7 @@
     [self.view endEditing:YES];
     
     // "Save" changes to item
-    SVKEvent *eDate = self.eDate;
+    SVKEvent *eDate = self.event;
     if(eDate) {
         eDate.eventName = self.nameField.text;
     }

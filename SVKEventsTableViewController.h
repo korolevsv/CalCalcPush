@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SVKDatesTableViewController : UITableViewController
+@interface SVKEventsTableViewController : UITableViewController
 
 @end

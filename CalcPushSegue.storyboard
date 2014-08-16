@@ -262,10 +262,10 @@
             </objects>
             <point key="canvasLocation" x="351" y="766"/>
         </scene>
-        <!--Dates Table View Controller - Choose Date-->
+        <!--Events Table View Controller - Choose Date-->
         <scene sceneID="swX-Vc-NRO">
             <objects>
-                <tableViewController id="gw1-LY-r17" customClass="SVKDatesTableViewController" sceneMemberID="viewController">
+                <tableViewController id="gw1-LY-r17" customClass="SVKEventsTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="YTh-zW-R0W">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

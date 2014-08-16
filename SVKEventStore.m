@@ -54,20 +54,20 @@
 }
 
 
-- (NSArray *) allDates
+- (NSArray *) allEvents
 {
     return self.privateEvents;
 }
 
 - (SVKEvent *) createEvent
 {
-    SVKEvent * date = [[SVKEvent alloc] init];
-    date.eventName = @"New Date";
-    date.eventDate = [[NSDate alloc] init];
+    SVKEvent * event = [[SVKEvent alloc] init];
+    event.eventName = @"New Date";
+    event.eventDate = [[NSDate alloc] init];
     
-    [self.privateEvents addObject:date];
+    [self.privateEvents addObject:event];
     
-    return date;
+    return event;
 }
 - (void)removeEvent:(SVKEvent *)event
 {

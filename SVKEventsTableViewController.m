@@ -6,17 +6,17 @@
 //  Copyright (c) 2014 SelfEducation. All rights reserved.
 //
 
-#import "SVKDatesTableViewController.h"
+#import "SVKEventsTableViewController.h"
 #import "SVKEvent.h"
 #import "SVKEventStore.h"
 #import "SVKDetailViewController.h"
+#import "SVKEventCell.h"
 
-
-@interface SVKDatesTableViewController ()
+@interface SVKEventsTableViewController ()
 
 @end
 
-@implementation SVKDatesTableViewController
+@implementation SVKEventsTableViewController
 
 - (IBAction)addNewItem:(id)sender
 {
@@ -24,7 +24,7 @@
     SVKEvent *newDate = [[SVKEventStore sharedStore] createEvent];
     
     // Figure out where that item is in the array
-    NSInteger lastRow = [[[SVKEventStore sharedStore] allDates] indexOfObject:newDate];
+    NSInteger lastRow = [[[SVKEventStore sharedStore] allEvents] indexOfObject:newDate];
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
     
@@ -61,6 +61,13 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     self.navigationItem.title = @"Events";
+    
+    // Load the NIB file
+    UINib *nib = [UINib nibWithNibName:@"SVKEventCell" bundle:nil];
+    
+    // Register this NIB, which contains the cell
+    [self.tableView registerNib:nib
+         forCellReuseIdentifier:@"SVKEventCell"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -88,25 +95,28 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    int i = [[[SVKEventStore sharedStore] allDates] count];
-    return i;
+    return [[[SVKEventStore sharedStore] allEvents] count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Create an instance of UITableViewCell, with default appearance
-    UITableViewCell *cell =
-    [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                           reuseIdentifier:@"UITableViewCell"];
+    // Get a new or recycled cell
+    SVKEventCell *cell =
+    [tableView dequeueReusableCellWithIdentifier:@"SVKEventCell"
+                                    forIndexPath:indexPath];
     
     // Set the text on the cell with the description of the item
     // that is at the nth index of items, where n = row this cell
     // will appear in on the tableview
-    NSArray *dates = [[SVKEventStore sharedStore] allDates];
-    SVKEvent *date = dates[indexPath.row];
+    NSArray *events = [[SVKEventStore sharedStore] allEvents];
+    SVKEvent *event = events[indexPath.row];
     
-    cell.textLabel.text = [date description];
+//    cell.textLabel.text = [date description];
+    // Configure the cell with the BNRItem
+    cell.nameLabel.text = event.eventName;
+    cell.dateLabel.text = [event dateDescription];
+    cell.timeLabel.text = [event timeDescription];
     return cell;
 }
 
@@ -116,9 +126,9 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
     //Later make this method to return selected EventDate to DatesIntervalView !!!
     SVKDetailViewController *detailViewController =
     [[SVKDetailViewController alloc] init];
-    NSArray *dates = [[SVKEventStore sharedStore] allDates];
+    NSArray *dates = [[SVKEventStore sharedStore] allEvents];
     SVKEvent *selectedDate = dates[indexPath.row];
-    detailViewController.eDate = selectedDate;
+    detailViewController.event = selectedDate;
         
     // Push it onto the top of the navigation controller's stack
     [self.navigationController pushViewController:detailViewController
@@ -140,7 +150,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        NSArray *eDates = [[SVKEventStore sharedStore] allDates];
+        NSArray *eDates = [[SVKEventStore sharedStore] allEvents];
         SVKEvent *eDate = eDates[indexPath.row];
         [[SVKEventStore sharedStore] removeEvent:eDate];
         

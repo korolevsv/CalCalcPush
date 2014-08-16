@@ -28,4 +28,30 @@
     }
     return self;
 }
+
+- (NSString *) dateDescription
+{
+    static NSDateFormatter *dateFormatter = nil;
+    if (!dateFormatter) {
+        dateFormatter = [[NSDateFormatter alloc] init];
+        dateFormatter.dateStyle = NSDateFormatterMediumStyle;
+        dateFormatter.timeStyle = NSDateFormatterNoStyle;
+    }
+    
+    // Use filtered NSDate object to set dateLabel contents
+    return [dateFormatter stringFromDate:self.eventDate];
+}
+- (NSString *) timeDescription
+{
+    static NSDateFormatter *dateFormatter = nil;
+    if (!dateFormatter) {
+        dateFormatter = [[NSDateFormatter alloc] init];
+        dateFormatter.dateStyle = NSDateFormatterNoStyle;
+        dateFormatter.timeStyle = NSDateFormatterMediumStyle;
+    }
+    
+    // Use filtered NSDate object to set dateLabel contents
+    return [dateFormatter stringFromDate:self.eventDate];
+}
+
 @end

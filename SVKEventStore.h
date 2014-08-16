@@ -12,7 +12,7 @@
 
 @interface SVKEventStore : NSObject
 
-@property (nonatomic, readonly) NSArray *allDates;
+@property (nonatomic, readonly) NSArray *allEvents;
 
 + (instancetype) sharedStore;
 - (SVKEvent *) createEvent;
