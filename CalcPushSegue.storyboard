@@ -23,10 +23,10 @@
             </objects>
             <point key="canvasLocation" x="-201" y="372"/>
         </scene>
-        <!--Dates Interval View Controller - Interval-->
+        <!--Dates Durationl View Controller - Interval-->
         <scene sceneID="OMd-x1-oi8">
             <objects>
-                <viewController id="S0X-Ag-U2Z" customClass="SVKDatesIntervalViewController" sceneMemberID="viewController">
+                <viewController id="S0X-Ag-U2Z" customClass="SVKDatesDurationlViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LqT-Sd-lIX"/>
                         <viewControllerLayoutGuide type="bottom" id="QQC-vs-uDd"/>

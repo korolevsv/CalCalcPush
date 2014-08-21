@@ -7,14 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SVKDatesIntervalViewController.h"
+#import "SVKDatesDurationlViewController.h"
 #import "SVKCalCalc.h"
 
 @interface SVKSetDateViewController : UIViewController
 
 //@property (nonatomic, strong) NSDate *date;
 @property SVKCalCalc *calCalc;
-@property (nonatomic) SVKDatesIntervalViewController *datesPeriodViewController;
+@property (nonatomic) SVKDatesDurationlViewController *datesPeriodViewController;
 @property (nonatomic) BOOL isDateStart;
 
 @end

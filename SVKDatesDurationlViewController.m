@@ -6,14 +6,14 @@
 //  Copyright (c) 2014 SelfEducation. All rights reserved.
 //
 
-#import "SVKDatesIntervalViewController.h"
+#import "SVKDatesDurationlViewController.h"
 #import "SVKCalCalc.h"
 #import "SVKSetDateViewController.h"
 #import "SVKDatePickerViewController.h"
 #import "SVKTimePickerViewController.h"
 
 
-@interface SVKDatesIntervalViewController ()
+@interface SVKDatesDurationlViewController ()
 
 @property BOOL isFixedDates; // Calculate with fixed Start and End Dates
 @property BOOL isStartNow; // Calculate with startDate=NOW or endDate=NOW
@@ -54,7 +54,7 @@
 
 @end
 
-@implementation SVKDatesIntervalViewController
+@implementation SVKDatesDurationlViewController
 
 NSTimer *timerNow;
 
@@ -144,8 +144,7 @@ NSTimer *timerNow;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     _calCalc = [[SVKCalCalc alloc] init];
-    self.startDate = self.calCalc.startDate;
-    self.endDate = self.calCalc.endDate;
+    _isFixedDates = YES;
     [self initView];
     
 }
@@ -159,21 +158,6 @@ NSTimer *timerNow;
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-/*
-// Debug code
-    NSDateComponents *compsDebug = [[NSDateComponents alloc] init];
-    [compsDebug setYear:1065];
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-
-    NSDate *dateDebug = [calendar dateFromComponents:compsDebug];
-    self.startDate = dateDebug;
-// End of debug
-*/
-// Change logic - use calCalc as main storage!!!
-//    self.calCalc.startDate = self.startDate;
-    // Restore settings from Date and Time Pickers via calCalc
-    self.startDate = self.calCalc.startDate;
-    self.endDate = self.calCalc.endDate;
 
     [self updateView];
 }
@@ -257,7 +241,6 @@ NSTimer *timerNow;
         SVKSetDateViewController *setDateController = (SVKSetDateViewController *)segue.destinationViewController;
         setDateController.datesPeriodViewController = self;
 
-//        setDateController.date = self.startDate;
         setDateController.isDateStart = YES;
         setDateController.calCalc = self.calCalc;
     }
@@ -265,7 +248,6 @@ NSTimer *timerNow;
         SVKSetDateViewController *setDateController = (SVKSetDateViewController *)segue.destinationViewController;
         setDateController.datesPeriodViewController = self;
 
-//        setDateController.date = self.endDate;
         setDateController.isDateStart = NO;
         setDateController.calCalc = self.calCalc;
     }
