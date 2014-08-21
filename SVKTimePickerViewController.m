@@ -65,7 +65,7 @@
 {
     [super viewWillAppear:animated];
     
-    // Set Date Picker
+    // Set Time Picker - without seconds!
     if (self.isDateStart) {
         self.timePicker.date = self.calCalc.startDate;
         self.navigationItem.title = @"Set Start Time";
@@ -73,5 +73,7 @@
         self.navigationItem.title = @"Set End Time";
         self.timePicker.date = self.calCalc.endDate;
     }
+// Remove seconds:
+    self.timePicker.date = [self.calCalc removeSecondsFromDate:self.timePicker.date];    
 }
 @end

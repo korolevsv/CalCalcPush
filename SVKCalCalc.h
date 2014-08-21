@@ -35,6 +35,7 @@
 - (NSTimeInterval)intervalSecs;
 - (void)setStartNow;
 - (void)setEndNow;
+- (NSDate *)removeSecondsFromDate:(NSDate*)date;
 
 
 @end

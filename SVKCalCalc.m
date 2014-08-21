@@ -185,6 +185,15 @@ NSCalendarUnit units = NSSecondCalendarUnit;
     _endDate = [cal dateFromComponents:components];
 }
 
+- (NSDate *)removeSecondsFromDate:(NSDate*)date
+{
+    components = [[NSDateComponents alloc] init];
+    unsigned unitFlagsDateOnly = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit;
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    NSDateComponents *components = [cal components:unitFlagsDateOnly fromDate:date];
+    return [cal dateFromComponents:components];
+}
+
 
 /*
 For example, timeIntervalSinceNow gives you the time, in seconds, between the current time and the receiving date object.

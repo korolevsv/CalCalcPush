@@ -21,6 +21,10 @@
 @property SVKCalCalc *calCalc;
 @property UIColor *colorTextFieldDefault;
 @property UIColor *colorTextFieldDisabled;
+@property UIColor *colorTextInteracive;
+@property UIColor *colorTextNoninteractive;
+
+
 
 
 @property (weak, nonatomic) IBOutlet UITextField *startDateField;
@@ -62,6 +66,8 @@ NSTimer *timerNow = nil;
 - (IBAction)selectorNow:(id)sender {
     UISegmentedControl *segmentNow;
     segmentNow = sender;
+    UISwitch * switchSecs = self.switchSecs;
+    
     switch (segmentNow.selectedSegmentIndex) {
         case 0:
         {
@@ -70,6 +76,10 @@ NSTimer *timerNow = nil;
             [self startTimer];
             [self enableStartFields:NO];
             [self enableEndFields:YES];
+            // Switch on seconds to see timer count
+            [switchSecs setOn:YES animated:YES];
+            [self switchSec:switchSecs];
+            
             [self updateView];
             break;
         }
@@ -79,6 +89,7 @@ NSTimer *timerNow = nil;
             [self stopTimer];
             [self enableStartFields:YES];
             [self enableEndFields:YES];
+            
             [self updateView];
             break;
         }
@@ -89,6 +100,10 @@ NSTimer *timerNow = nil;
             [self startTimer];
             [self enableStartFields:YES];
             [self enableEndFields:NO];
+            // Switch on seconds to see timer count
+            [switchSecs setOn:YES animated:YES];
+            [self switchSec:switchSecs];
+            
             [self updateView];
             break;
         }
@@ -286,6 +301,9 @@ NSTimer *timerNow = nil;
 {
     _colorTextFieldDefault = [UIColor whiteColor];
     _colorTextFieldDisabled = [UIColor lightGrayColor];
+    _colorTextInteracive = [UIColor blueColor];
+    _colorTextNoninteractive = [UIColor blackColor];
+    
     // Set initial switches and text backgrounds:
     self.switchYears.on = YES;
     [self switchYears:self.switchYears];
@@ -300,6 +318,13 @@ NSTimer *timerNow = nil;
     self.switchSecs.on = NO;
     [self switchSec:self.switchSecs];
     
+    // Show interactive fields:
+    self.startDateField.textColor = _colorTextInteracive;
+    self.endDateField.textColor = _colorTextInteracive;
+    self.startTimeField.textColor = _colorTextInteracive;
+    self.endTimeField.textColor = _colorTextInteracive;
+    
+    
     [self updateView];
 
 }
@@ -312,11 +337,15 @@ NSTimer *timerNow = nil;
         self.startTimeField.backgroundColor = _colorTextFieldDefault;
         self.startDateField.userInteractionEnabled = YES;
         self.startTimeField.userInteractionEnabled = YES;
+        self.startDateField.textColor = _colorTextInteracive;
+        self.startTimeField.textColor = _colorTextInteracive;
     } else {
         self.startDateField.backgroundColor = _colorTextFieldDisabled;
         self.startTimeField.backgroundColor = _colorTextFieldDisabled;
         self.startDateField.userInteractionEnabled = NO;
         self.startTimeField.userInteractionEnabled = NO;
+        self.startDateField.textColor = _colorTextNoninteractive;
+        self.startTimeField.textColor = _colorTextNoninteractive;
     }
 }
 
@@ -327,11 +356,15 @@ NSTimer *timerNow = nil;
         self.endTimeField.backgroundColor = _colorTextFieldDefault;
         self.endDateField.userInteractionEnabled = YES;
         self.endTimeField.userInteractionEnabled = YES;
+        self.endDateField.textColor = _colorTextInteracive;
+        self.endTimeField.textColor = _colorTextInteracive;
     } else {
         self.endDateField.backgroundColor = _colorTextFieldDisabled;
         self.endTimeField.backgroundColor = _colorTextFieldDisabled;
         self.endDateField.userInteractionEnabled = NO;
         self.endTimeField.userInteractionEnabled = NO;
+        self.endDateField.textColor = _colorTextNoninteractive;
+        self.endTimeField.textColor = _colorTextNoninteractive;
     }
 }
 
