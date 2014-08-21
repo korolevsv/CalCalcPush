@@ -56,7 +56,7 @@
 
 @implementation SVKDatesDurationlViewController
 
-NSTimer *timerNow;
+NSTimer *timerNow = nil;
 
 #pragma mark - NOW and Timer methods
 - (IBAction)selectorNow:(id)sender {
@@ -69,6 +69,7 @@ NSTimer *timerNow;
             self.isStartNow = YES;
             [self startTimer];
             [self enableStartFields:NO];
+            [self enableEndFields:YES];
             [self updateView];
             break;
         }
@@ -86,6 +87,7 @@ NSTimer *timerNow;
             self.isFixedDates = NO;
             self.isStartNow = NO;
             [self startTimer];
+            [self enableStartFields:YES];
             [self enableEndFields:NO];
             [self updateView];
             break;
@@ -100,7 +102,9 @@ NSTimer *timerNow;
 }
 - (void)startTimer
 {
-    timerNow = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTimer) userInfo:nil repeats:YES];
+    if (!timerNow) {
+        timerNow = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTimer) userInfo:nil repeats:YES];
+    }
 }
 
 - (void)updateTimer
@@ -116,6 +120,7 @@ NSTimer *timerNow;
 - (void)stopTimer
 {
     [timerNow invalidate];
+    timerNow = nil;
 }
 
 

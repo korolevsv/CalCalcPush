@@ -165,12 +165,24 @@ NSCalendarUnit units = NSSecondCalendarUnit;
 
 - (void)setStartNow
 {
-    _startDate = [[NSDate alloc] init];
+    // Set time to Now WITHOUT seconds fractions
+    NSDate *now = [[NSDate alloc] init];
+    components = [[NSDateComponents alloc] init];
+    unsigned unitFlagsDateOnly = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    NSDateComponents *components = [cal components:unitFlagsDateOnly fromDate:now];
+    _startDate = [cal dateFromComponents:components];
 }
 
 - (void)setEndNow
 {
-    _endDate = [[NSDate alloc] init];
+    // Set time to Now WITHOUT seconds fractions
+    NSDate *now = [[NSDate alloc] init];
+    components = [[NSDateComponents alloc] init];
+    unsigned unitFlagsDateOnly = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    NSDateComponents *components = [cal components:unitFlagsDateOnly fromDate:now];
+    _endDate = [cal dateFromComponents:components];
 }
 
 
