@@ -207,7 +207,7 @@
                                     <segue destination="yfd-km-fRD" kind="modal" identifier="ModalDate" id="BU6-NV-hLQ"/>
                                 </connections>
                             </textField>
-                            <segmentedControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="cc2-Vz-OPl">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="cc2-Vz-OPl">
                                 <rect key="frame" x="20" y="123" width="280" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
@@ -215,6 +215,9 @@
                                     <segment title="Fixed Dates"/>
                                     <segment title="End=NOW"/>
                                 </segments>
+                                <connections>
+                                    <action selector="selectorNow:" destination="S0X-Ag-U2Z" eventType="valueChanged" id="DjO-LT-Mke"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>

@@ -163,6 +163,17 @@ NSCalendarUnit units = NSSecondCalendarUnit;
     }
 }
 
+- (void)setStartNow
+{
+    _startDate = [[NSDate alloc] init];
+}
+
+- (void)setEndNow
+{
+    _endDate = [[NSDate alloc] init];
+}
+
+
 /*
 For example, timeIntervalSinceNow gives you the time, in seconds, between the current time and the receiving date object.
 */

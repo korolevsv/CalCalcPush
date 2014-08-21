@@ -15,6 +15,9 @@
 
 @interface SVKDatesIntervalViewController ()
 
+@property BOOL isFixedDates; // Calculate with fixed Start and End Dates
+@property BOOL isStartNow; // Calculate with startDate=NOW or endDate=NOW
+
 @property SVKCalCalc *calCalc;
 @property UIColor *colorTextFieldDefault;
 @property UIColor *colorTextFieldDisabled;
@@ -40,9 +43,84 @@
 @property (weak, nonatomic) IBOutlet UISwitch *switchMins;
 @property (weak, nonatomic) IBOutlet UISwitch *switchSecs;
 
+- (void)enableStartFields:(BOOL)isEnabled;
+- (void)enableEndFields:(BOOL)isEnabled;
+- (void)updateView;
+- (void)startTimer;
+- (void)stopTimer;
+- (void)updateTimer;
+
+
+
 @end
 
 @implementation SVKDatesIntervalViewController
+
+NSTimer *timerNow;
+
+#pragma mark - NOW and Timer methods
+- (IBAction)selectorNow:(id)sender {
+    UISegmentedControl *segmentNow;
+    segmentNow = sender;
+    switch (segmentNow.selectedSegmentIndex) {
+        case 0:
+        {
+            self.isFixedDates = NO;
+            self.isStartNow = YES;
+            [self startTimer];
+            [self enableStartFields:NO];
+            [self updateView];
+            break;
+        }
+        case 1:
+        {
+            self.isFixedDates = YES;
+            [self stopTimer];
+            [self enableStartFields:YES];
+            [self enableEndFields:YES];
+            [self updateView];
+            break;
+        }
+        case 2:
+        {
+            self.isFixedDates = NO;
+            self.isStartNow = NO;
+            [self startTimer];
+            [self enableEndFields:NO];
+            [self updateView];
+            break;
+        }
+            
+            break;
+            
+        default:
+            break;
+    }
+    
+}
+- (void)startTimer
+{
+    timerNow = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTimer) userInfo:nil repeats:YES];
+}
+
+- (void)updateTimer
+{
+    if (self.isStartNow) {
+        [self.calCalc setStartNow];
+    } else {
+        [self.calCalc setEndNow];
+    }
+    [self updateView];
+}
+
+- (void)stopTimer
+{
+    [timerNow invalidate];
+}
+
+
+
+#pragma mark - Set Start-End Dates
 - (IBAction)pickDate:(id)sender {
     [self performSegueWithIdentifier:@"ModalDate" sender:sender];
 }
@@ -51,6 +129,7 @@
 }
 
 
+#pragma mark Standard methods
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -67,24 +146,8 @@
     _calCalc = [[SVKCalCalc alloc] init];
     self.startDate = self.calCalc.startDate;
     self.endDate = self.calCalc.endDate;
+    [self initView];
     
-    _colorTextFieldDefault = [UIColor whiteColor];
-    _colorTextFieldDisabled = [UIColor lightGrayColor];
-    // Set initial switches and text backgrounds:
-    self.switchYears.on = YES;
-    [self switchYears:self.switchYears];
-    self.switchMonths.on = YES;
-    [self switchMonths:self.switchMonths];
-    self.switchDays.on = YES;
-    [self switchDay:self.switchDays];
-    self.switchHours.on = NO;
-    [self switchHour:self.switchHours];
-    self.switchMins.on = NO;
-    [self switchMin:self.switchMins];
-    self.switchSecs.on = NO;
-    [self switchSec:self.switchSecs];
-
-    [self updateView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -231,19 +294,83 @@
 }
 
 
-#pragma mark - View fields setting
+#pragma mark - View fields update
+- (void)initView
+{
+    _colorTextFieldDefault = [UIColor whiteColor];
+    _colorTextFieldDisabled = [UIColor lightGrayColor];
+    // Set initial switches and text backgrounds:
+    self.switchYears.on = YES;
+    [self switchYears:self.switchYears];
+    self.switchMonths.on = YES;
+    [self switchMonths:self.switchMonths];
+    self.switchDays.on = YES;
+    [self switchDay:self.switchDays];
+    self.switchHours.on = NO;
+    [self switchHour:self.switchHours];
+    self.switchMins.on = NO;
+    [self switchMin:self.switchMins];
+    self.switchSecs.on = NO;
+    [self switchSec:self.switchSecs];
+    
+    [self updateView];
+
+}
+
+
+- (void)enableStartFields:(BOOL)isEnabled
+{
+    if (isEnabled) {
+        self.startDateField.backgroundColor = _colorTextFieldDefault;
+        self.startTimeField.backgroundColor = _colorTextFieldDefault;
+        self.startDateField.userInteractionEnabled = YES;
+        self.startTimeField.userInteractionEnabled = YES;
+    } else {
+        self.startDateField.backgroundColor = _colorTextFieldDisabled;
+        self.startTimeField.backgroundColor = _colorTextFieldDisabled;
+        self.startDateField.userInteractionEnabled = NO;
+        self.startTimeField.userInteractionEnabled = NO;
+    }
+}
+
+- (void)enableEndFields:(BOOL) isEnabled
+{
+    if (isEnabled) {
+        self.endDateField.backgroundColor = _colorTextFieldDefault;
+        self.endTimeField.backgroundColor = _colorTextFieldDefault;
+        self.endDateField.userInteractionEnabled = YES;
+        self.endTimeField.userInteractionEnabled = YES;
+    } else {
+        self.endDateField.backgroundColor = _colorTextFieldDisabled;
+        self.endTimeField.backgroundColor = _colorTextFieldDisabled;
+        self.endDateField.userInteractionEnabled = NO;
+        self.endTimeField.userInteractionEnabled = NO;
+    }
+}
+
 - (void) updateView {
 //    Print start-end date-time:
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateStyle:NSDateFormatterMediumStyle];
     [formatter setTimeStyle:NSDateFormatterNoStyle];
-    self.startDateField.text = [formatter stringFromDate:self.startDate];
-    self.endDateField.text = [formatter stringFromDate:self.endDate];
-
+    
+    if (_isFixedDates) {  // Fixed Dates
+        self.startDateField.text = [formatter stringFromDate:self.calCalc.startDate];
+        self.endDateField.text = [formatter stringFromDate:self.calCalc.endDate];
+    } else if (_isStartNow) {  // Start = NOW
+        self.startDateField.text = @"TODAY";
+        self.endDateField.text = [formatter stringFromDate:self.calCalc.endDate];
+        
+    } else {  // End = NOW
+        self.startDateField.text = [formatter stringFromDate:self.calCalc.startDate];
+        self.endDateField.text = @"TODAY";
+        
+    }
+    
     [formatter setDateStyle:NSDateFormatterNoStyle];
     [formatter setTimeStyle:NSDateFormatterMediumStyle];
-    self.startTimeField.text = [formatter stringFromDate:self.startDate];
-    self.endTimeField.text = [formatter stringFromDate:self.endDate];
+    self.startTimeField.text = [formatter stringFromDate:self.calCalc.startDate];
+    self.endTimeField.text = [formatter stringFromDate:self.calCalc.endDate];
     
 // Show Interval
     self.yearsTextField.text = [NSString localizedStringWithFormat:@"%ld", [self.calCalc intervalYears]];

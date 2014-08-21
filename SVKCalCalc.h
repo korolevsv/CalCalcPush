@@ -33,6 +33,8 @@
 - (long)intervalHours;
 - (long)intervalMins;
 - (NSTimeInterval)intervalSecs;
+- (void)setStartNow;
+- (void)setEndNow;
 
 
 @end
