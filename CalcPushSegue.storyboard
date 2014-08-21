@@ -56,7 +56,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="year(s)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QDd-7v-X1Z">
-                                <rect key="frame" x="232" y="197" width="68" height="21"/>
+                                <rect key="frame" x="232" y="191" width="68" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
@@ -75,7 +75,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="day(s)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWb-hv-Hei">
-                                <rect key="frame" x="232" y="275" width="68" height="21"/>
+                                <rect key="frame" x="232" y="269" width="68" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
@@ -94,7 +94,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="hour(s)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ty3-0L-4B1">
-                                <rect key="frame" x="232" y="314" width="68" height="21"/>
+                                <rect key="frame" x="232" y="308" width="68" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
@@ -113,7 +113,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="min(s)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rJS-Ma-wlp">
-                                <rect key="frame" x="232" y="353" width="68" height="21"/>
+                                <rect key="frame" x="232" y="347" width="68" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
@@ -132,7 +132,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="sec(s)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cDM-Kc-MLw">
-                                <rect key="frame" x="232" y="387" width="68" height="21"/>
+                                <rect key="frame" x="232" y="386" width="68" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
@@ -151,7 +151,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="month(s)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yc5-0j-9M3">
-                                <rect key="frame" x="232" y="237" width="68" height="21"/>
+                                <rect key="frame" x="232" y="230" width="68" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
@@ -220,19 +220,24 @@
                                 </connections>
                             </segmentedControl>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <accessibility key="accessibilityConfiguration" label="DatesPeriodView"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Duration" id="QGx-Ih-gAf"/>
                     <navigationItem key="navigationItem" title="Interval" id="edQ-Qb-HkU"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="daysLabel" destination="cWb-hv-Hei" id="TYq-ge-4x4"/>
                         <outlet property="daysTextField" destination="Oxz-t5-WP9" id="Qqp-Lu-hDP"/>
                         <outlet property="endDateField" destination="L2H-Bb-Hn3" id="BdC-Xh-siJ"/>
                         <outlet property="endTimeField" destination="2Vi-2j-bxb" id="w4g-dz-DAH"/>
+                        <outlet property="hoursLabel" destination="Ty3-0L-4B1" id="MRF-Ja-hDh"/>
                         <outlet property="hoursTextField" destination="3dc-jk-6EU" id="Vcr-RF-lkG"/>
+                        <outlet property="minsLabel" destination="rJS-Ma-wlp" id="tC6-yu-KDP"/>
                         <outlet property="minsTextField" destination="lRs-UQ-7Tb" id="q5y-gq-qoI"/>
+                        <outlet property="monthsLabel" destination="Yc5-0j-9M3" id="m9K-NF-asD"/>
                         <outlet property="monthsTextField" destination="VId-nx-A5h" id="uAa-xc-Wwr"/>
+                        <outlet property="secsLabel" destination="cDM-Kc-MLw" id="Zad-oH-ri4"/>
                         <outlet property="secsTextField" destination="DKg-ec-Gd5" id="sYZ-m1-iiV"/>
                         <outlet property="startDateField" destination="BkN-8h-BjL" id="kz8-CE-vWL"/>
                         <outlet property="startTimeField" destination="sEW-MR-DFq" id="Eu8-FU-isk"/>
@@ -242,6 +247,7 @@
                         <outlet property="switchMonths" destination="JaF-oJ-cYQ" id="1mn-ex-KvC"/>
                         <outlet property="switchSecs" destination="gt2-IP-ts0" id="tmu-rX-EUb"/>
                         <outlet property="switchYears" destination="2CG-fW-iwl" id="5yw-QZ-pdX"/>
+                        <outlet property="yearsLabel" destination="QDd-7v-X1Z" id="puM-pf-Y9x"/>
                         <outlet property="yearsTextField" destination="qt9-fT-bjx" id="8i6-xd-UTL"/>
                     </connections>
                 </viewController>
@@ -342,7 +348,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </timeZone>
                             </datePicker>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Set Date" id="tXi-52-Fa1">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="x4h-bO-3OO">
@@ -420,7 +426,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </timeZone>
                             </datePicker>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Set Time" id="lj4-Wv-lhH">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="mn7-Z2-yVy">
