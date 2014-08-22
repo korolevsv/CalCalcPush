@@ -15,6 +15,14 @@
 
 @implementation SVKDatePickerViewController
 - (IBAction)doneButton:(id)sender {
+    // Call from Event Detail View
+    if (self.isEventDate) {
+        self.calCalc.startDate = self.DatePicker.date;
+        [self dismiss:sender];
+        return;
+    }
+    
+    // Call from Dates-Duration View
     if (self.isDateStart) {
         self.calCalc.startDate = self.DatePicker.date;
     } else {
@@ -32,17 +40,29 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+//    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    @throw [NSException exceptionWithName:@"Wrong initializer"
+                                        reason:@"Use initForNewItem:"
+                                      userInfo:nil];
+    return nil;
+
+/*
     if (self) {
         // Custom initialization
+        self.isEventDate = NO;
     }
+
     return self;
+*/
+    
 }
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+//    self.isEventDate = NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,6 +85,12 @@
 {
     [super viewWillAppear:animated];
     
+    if (self.isEventDate) {
+        self.DatePicker.date = self.calCalc.startDate;
+        self.navigationItem.title = @"Set Event Date";       
+        return;
+    }
+    
     // Set Date Picker
     if (self.isDateStart) {
         self.DatePicker.date = self.calCalc.startDate;
@@ -74,4 +100,19 @@
         self.DatePicker.date = self.calCalc.endDate;
     }
 }
+
+#pragma mark - Event date picker 
+- (instancetype)initForEventWithDate:(NSDate*)eventDate
+{
+    self = [super initWithNibName:nil bundle:nil];
+    
+    
+    if (self) {
+        self.navigationItem.title = @"Set Event Date";
+        self.isEventDate = YES;
+    }
+    
+    return self;
+}
+
 @end

@@ -9,6 +9,10 @@
 #import "SVKDetailViewController.h"
 #import "SVKEvent.h"
 #import "SVKEventStore.h"
+#import "SVKDatePickerViewController.h"
+#import "SVKCalCalc.h"
+
+
 
 @interface SVKDetailViewController () <UITextFieldDelegate>
 
@@ -16,10 +20,28 @@
 @property (weak, nonatomic) IBOutlet UITextField *dateField;
 @property (weak, nonatomic) IBOutlet UITextField *timeField;
 
+@property SVKCalCalc *calCalc;
+
 @end
 
 @implementation SVKDetailViewController
 
+#pragma marl - Modal View Pickers Experiment
+- (IBAction)dateButton:(id)sender {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"CalcPushSegue" bundle:nil];
+    
+    SVKDatePickerViewController *datePickerViewController = (SVKDatePickerViewController *)[storyboard instantiateViewControllerWithIdentifier:@"DatePicker"];
+    datePickerViewController.isEventDate = YES;
+    datePickerViewController.calCalc = self.calCalc;
+    datePickerViewController.calCalc.startDate = self.event.eventDate;
+    UINavigationController *navController = [[UINavigationController alloc]
+                                              initWithRootViewController:datePickerViewController];    
+    [self presentViewController:navController animated:YES completion:nil];
+    
+}
+
+
+#pragma mark - Stable code
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
@@ -32,12 +54,9 @@
 - (instancetype)init
 {
     self = [super init];
-    /* Use this to set a common navigation item name for the view
     if (self) {
-        UINavigationItem *navItem = self.navigationItem;
-        navItem.title = @"Details";
+        self.calCalc = [[SVKCalCalc alloc] init];
     }
-     */
     return self;
 }
 

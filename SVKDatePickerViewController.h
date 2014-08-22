@@ -16,4 +16,8 @@
 @property (nonatomic) BOOL isDateStart;
 @property (weak, nonatomic) IBOutlet UIDatePicker *DatePicker;
 
+@property BOOL isEventDate;
+
+- (instancetype)initForEventWithDate:(NSDate*)eventDate;
+
 @end

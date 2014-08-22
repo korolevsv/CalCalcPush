@@ -47,7 +47,8 @@
     if (!dateFormatter) {
         dateFormatter = [[NSDateFormatter alloc] init];
         dateFormatter.dateStyle = NSDateFormatterNoStyle;
-        dateFormatter.timeStyle = NSDateFormatterMediumStyle;
+//        dateFormatter.timeStyle = NSDateFormatterMediumStyle;
+        dateFormatter.timeStyle = NSDateFormatterShortStyle;
     }
     
     // Use filtered NSDate object to set dateLabel contents
