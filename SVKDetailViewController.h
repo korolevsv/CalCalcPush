@@ -12,5 +12,8 @@
 @interface SVKDetailViewController : UIViewController
 
 @property (strong, nonatomic) SVKEvent *event;
+@property BOOL isNew;
+
+-(void)setEventTitle:(SVKEvent *)event;
 
 @end

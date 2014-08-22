@@ -40,21 +40,11 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-//    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    @throw [NSException exceptionWithName:@"Wrong initializer"
-                                        reason:@"Use initForNewItem:"
-                                      userInfo:nil];
-    return nil;
-
-/*
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.isEventDate = NO;
     }
-
     return self;
-*/
-    
 }
 
 
@@ -85,13 +75,13 @@
 {
     [super viewWillAppear:animated];
     
+    // Set Date Picker
     if (self.isEventDate) {
         self.DatePicker.date = self.calCalc.startDate;
         self.navigationItem.title = @"Set Event Date";       
         return;
     }
     
-    // Set Date Picker
     if (self.isDateStart) {
         self.DatePicker.date = self.calCalc.startDate;
         self.navigationItem.title = @"Set Start Date";
@@ -101,7 +91,8 @@
     }
 }
 
-#pragma mark - Event date picker 
+/*
+#pragma mark - Event date picker
 - (instancetype)initForEventWithDate:(NSDate*)eventDate
 {
     self = [super initWithNibName:nil bundle:nil];
@@ -114,5 +105,5 @@
     
     return self;
 }
-
+*/
 @end

@@ -126,9 +126,10 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
     //Later make this method to return selected EventDate to DatesIntervalView !!!
     SVKDetailViewController *detailViewController =
     [[SVKDetailViewController alloc] init];
-    NSArray *dates = [[SVKEventStore sharedStore] allEvents];
-    SVKEvent *selectedDate = dates[indexPath.row];
-    detailViewController.event = selectedDate;
+    NSArray *events = [[SVKEventStore sharedStore] allEvents];
+    SVKEvent *selectedEvent = events[indexPath.row];
+    detailViewController.event = selectedEvent;
+    [detailViewController setEventTitle:selectedEvent];
         
     // Push it onto the top of the navigation controller's stack
     [self.navigationController pushViewController:detailViewController

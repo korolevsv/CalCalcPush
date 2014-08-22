@@ -10,6 +10,7 @@
 #import "SVKEvent.h"
 #import "SVKEventStore.h"
 #import "SVKDatePickerViewController.h"
+#import "SVKTimePickerViewController.h"
 #import "SVKCalCalc.h"
 
 
@@ -26,22 +27,31 @@
 
 @implementation SVKDetailViewController
 
-#pragma marl - Modal View Pickers Experiment
-- (IBAction)dateButton:(id)sender {
+#pragma mark - Subview Actions
+
+- (IBAction)pickDate:(id)sender {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"CalcPushSegue" bundle:nil];
     
     SVKDatePickerViewController *datePickerViewController = (SVKDatePickerViewController *)[storyboard instantiateViewControllerWithIdentifier:@"DatePicker"];
     datePickerViewController.isEventDate = YES;
     datePickerViewController.calCalc = self.calCalc;
-    datePickerViewController.calCalc.startDate = self.event.eventDate;
+//    datePickerViewController.calCalc.startDate = self.event.eventDate;
     UINavigationController *navController = [[UINavigationController alloc]
-                                              initWithRootViewController:datePickerViewController];    
-    [self presentViewController:navController animated:YES completion:nil];
-    
+                                             initWithRootViewController:datePickerViewController];
+    [self presentViewController:navController animated:YES completion:nil];    
 }
 
+- (IBAction)pickTime:(id)sender {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"CalcPushSegue" bundle:nil];
+    
+    SVKTimePickerViewController *timePickerViewController = (SVKTimePickerViewController *)[storyboard instantiateViewControllerWithIdentifier:@"TimePicker"];
+    timePickerViewController.isEventDate = YES;
+    timePickerViewController.calCalc = self.calCalc;
+    UINavigationController *navController = [[UINavigationController alloc]
+                                             initWithRootViewController:timePickerViewController];
+    [self presentViewController:navController animated:YES completion:nil];
+}
 
-#pragma mark - Stable code
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
@@ -51,12 +61,16 @@
     [self.view endEditing:YES];
 }
 
+
+#pragma mark - Lifecycle
 - (instancetype)init
 {
     self = [super init];
     if (self) {
-        self.calCalc = [[SVKCalCalc alloc] init];
+        _calCalc = [[SVKCalCalc alloc] init];
     }
+    _isNew = NO;
+    
     return self;
 }
 
@@ -70,21 +84,10 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+
     SVKEvent *event = self.event;
+    _event.eventDate = self.calCalc.startDate;
     self.nameField.text = event.eventName;
-/*
-    // You need an NSDateFormatter that will turn a date into a simple date string
-    static NSDateFormatter *dateFormatter = nil;
-    if (!dateFormatter) {
-        dateFormatter = [[NSDateFormatter alloc] init];
-        dateFormatter.dateStyle = NSDateFormatterMediumStyle;
-        dateFormatter.timeStyle = NSDateFormatterNoStyle;
-    }
-    
-    // Use filtered NSDate object to set dateLabel contents
- self.dateField.text = [dateFormatter stringFromDate:date.eventDate];
-*/
     self.dateField.text = [event dateDescription];
     self.timeField.text = [event timeDescription];
 }
@@ -101,6 +104,13 @@
     if(eDate) {
         eDate.eventName = self.nameField.text;
     }
+}
+
+// Overwrite Setter to set CalCalc
+- (void)setEvent:(SVKEvent *)event
+{
+    _event = event;
+    _calCalc.startDate = _event.eventDate;
 }
 
 @end

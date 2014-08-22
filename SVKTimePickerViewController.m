@@ -15,6 +15,14 @@
 
 @implementation SVKTimePickerViewController
 - (IBAction)doneButton:(id)sender {
+    // Call from Event Detail View
+    if (self.isEventDate) {
+        self.calCalc.startDate = self.timePicker.date;
+        [self dismiss:sender];
+        return;
+    }
+    
+    // Call from Dates-Duration View
     if (self.isDateStart) {
         self.calCalc.startDate = self.timePicker.date;
     } else {
@@ -67,6 +75,12 @@
     [super viewWillAppear:animated];
     
     // Set Time Picker - without seconds!
+    if (self.isEventDate) {
+        self.timePicker.date = self.calCalc.startDate;
+        self.navigationItem.title = @"Set Event Date";
+        return;
+    }
+    
     if (self.isDateStart) {
         self.timePicker.date = self.calCalc.startDate;
         self.navigationItem.title = @"Set Start Time";
