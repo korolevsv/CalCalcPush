@@ -39,7 +39,7 @@
 {
     // Call the superclass's designated initializer
     self = [super initWithStyle:UITableViewStylePlain];
-
+    self.isPickingFromDatePicker = NO;
     return self;
 }
 
@@ -58,9 +58,13 @@
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
-    self.navigationItem.title = @"Events";
+    // Called from DatePicker or Events Tab?
+    if (self.isPickingFromDatePicker) {
+        self.navigationItem.title = @"Pick Event";
+    } else {
+        self.navigationItem.leftBarButtonItem = self.editButtonItem;
+        self.navigationItem.title = @"Events";
+    }
     
     // Load the NIB file
     UINib *nib = [UINib nibWithNibName:@"SVKEventCell" bundle:nil];
@@ -98,13 +102,14 @@
     return [[[SVKEventStore sharedStore] allEvents] count];
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Get a new or recycled cell
     SVKEventCell *cell =
     [tableView dequeueReusableCellWithIdentifier:@"SVKEventCell"
                                     forIndexPath:indexPath];
+    // Set cell accessory type
+    cell.accessoryType = UITableViewCellAccessoryDetailButton;
     
     // Set the text on the cell with the description of the item
     // that is at the nth index of items, where n = row this cell
@@ -120,10 +125,24 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    SVKDetailViewController *detailViewController =
+    [[SVKDetailViewController alloc] init];
+    NSArray *events = [[SVKEventStore sharedStore] allEvents];
+    SVKEvent *selectedEvent = events[indexPath.row];
+    detailViewController.event = selectedEvent;
+    [detailViewController setEventTitle:selectedEvent];
+    
+    // Push it onto the top of the navigation controller's stack
+    [self.navigationController pushViewController:detailViewController
+                                         animated:YES];
+}
+
 - (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //Later make this method to return selected EventDate to DatesIntervalView !!!
+    // Use this selection to set Event as start or end date
     SVKDetailViewController *detailViewController =
     [[SVKDetailViewController alloc] init];
     NSArray *events = [[SVKEventStore sharedStore] allEvents];

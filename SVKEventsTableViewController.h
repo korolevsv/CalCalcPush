@@ -10,4 +10,6 @@
 
 @interface SVKEventsTableViewController : UITableViewController
 
+@property BOOL isPickingFromDatePicker;
+
 @end
