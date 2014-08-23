@@ -86,6 +86,6 @@
         self.timePicker.date = self.calCalc.endDate;
     }
 // Remove seconds:
-    self.timePicker.date = [self.calCalc removeSecondsFromDate:self.timePicker.date];    
+    self.timePicker.date = [SVKCalCalc removeSecondsFromDate:self.timePicker.date];
 }
 @end

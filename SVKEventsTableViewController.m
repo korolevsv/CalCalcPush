@@ -21,19 +21,31 @@
 
 @implementation SVKEventsTableViewController
 
-- (IBAction)addNewItem:(id)sender
+- (IBAction)addNewEvent:(id)sender
 {
     // Create a new BNRItem and add it to the store
-    SVKEvent *newDate = [[SVKEventStore sharedStore] createEvent];
+    SVKEvent *newEvent = [[SVKEventStore sharedStore] createEvent];
     
+/*
     // Figure out where that item is in the array
-    NSInteger lastRow = [[[SVKEventStore sharedStore] allEvents] indexOfObject:newDate];
+    NSInteger lastRow = [[[SVKEventStore sharedStore] allEvents] indexOfObject:newEvent];
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
     
     // Insert this new row into the table.
     [self.tableView insertRowsAtIndexPaths:@[indexPath]
                           withRowAnimation:UITableViewRowAnimationTop];
+*/
+    SVKDetailViewController *detailViewController =
+    [[SVKDetailViewController alloc] initForNewEvent:YES];
+    
+    detailViewController.event = newEvent;
+    [detailViewController setEventTitle:newEvent];
+    
+    UINavigationController *navController = [[UINavigationController alloc]
+                                             initWithRootViewController:detailViewController];
+    
+    [self presentViewController:navController animated:YES completion:nil];
 }
 
 
@@ -142,8 +154,9 @@
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-    SVKDetailViewController *detailViewController =
-    [[SVKDetailViewController alloc] init];
+//    SVKDetailViewController *detailViewController = [[SVKDetailViewController alloc] init];
+    SVKDetailViewController *detailViewController = [[SVKDetailViewController alloc] initForNewEvent:NO];
+    
     NSArray *events = [[SVKEventStore sharedStore] allEvents];
     SVKEvent *selectedEvent = events[indexPath.row];
     detailViewController.event = selectedEvent;

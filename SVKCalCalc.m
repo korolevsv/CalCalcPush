@@ -185,7 +185,7 @@ NSCalendarUnit units = NSSecondCalendarUnit;
     _endDate = [cal dateFromComponents:components];
 }
 
-- (NSDate *)removeSecondsFromDate:(NSDate*)date
++ (NSDate *)removeSecondsFromDate:(NSDate*)date
 {
     components = [[NSDateComponents alloc] init];
     unsigned unitFlagsDateOnly = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit;

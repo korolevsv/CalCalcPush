@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 SelfEducation. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-//#import "SVKCalCalc.h"
+//#import <UIKit/UIKit.h>
+@import UIKit;
 
 @interface SVKDatesDurationlViewController : UIViewController
 

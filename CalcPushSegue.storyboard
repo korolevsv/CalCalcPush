@@ -298,7 +298,7 @@
                     <navigationItem key="navigationItem" title="Choose Date" id="Vhq-Qp-RKR">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="AxD-YB-2Qf">
                             <connections>
-                                <action selector="addNewItem:" destination="gw1-LY-r17" id="Tvc-m5-97h"/>
+                                <action selector="addNewEvent:" destination="gw1-LY-r17" id="jKd-dS-ubW"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

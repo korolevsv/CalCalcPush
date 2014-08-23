@@ -15,5 +15,6 @@
 @property BOOL isNew;
 
 -(void)setEventTitle:(SVKEvent *)event;
+-(instancetype)initForNewEvent:(BOOL)isNew;
 
 @end

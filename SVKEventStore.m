@@ -8,6 +8,7 @@
 
 #import "SVKEventStore.h"
 #import "SVKEvent.h"
+#import "SVKCalCalc.h"
 
 @interface SVKEventStore()
 
@@ -62,8 +63,8 @@
 - (SVKEvent *) createEvent
 {
     SVKEvent * event = [[SVKEvent alloc] init];
-    event.eventName = @"New Date";
-    event.eventDate = [[NSDate alloc] init];
+    event.eventName = @"New Event";
+    event.eventDate = [SVKCalCalc removeSecondsFromDate:[[NSDate alloc] init]];
     
     [self.privateEvents addObject:event];
     

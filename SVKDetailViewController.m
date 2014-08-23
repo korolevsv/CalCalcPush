@@ -65,6 +65,7 @@
 #pragma mark - Lifecycle
 - (instancetype)init
 {
+/*
     self = [super init];
     if (self) {
         _calCalc = [[SVKCalCalc alloc] init];
@@ -72,6 +73,65 @@
     _isNew = NO;
     
     return self;
+*/
+    @throw [NSException exceptionWithName:@"Wrong initializer"
+                                   reason:@"Use initForNewItem:"
+                                 userInfo:nil];
+    return nil;
+}
+
+
+- (instancetype)initForNewEvent:(BOOL)isNew
+{
+    self = [super initWithNibName:nil bundle:nil];
+//    self = [super init];
+    if (self) {
+        _calCalc = [[SVKCalCalc alloc] init];
+        if (self) {
+            _isNew = isNew;
+            if (isNew) {
+                UIBarButtonItem *doneItem = [[UIBarButtonItem alloc]
+                                             initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+                                             target:self
+                                             action:@selector(save:)];
+                self.navigationItem.rightBarButtonItem = doneItem;
+                
+                UIBarButtonItem *cancelItem = [[UIBarButtonItem alloc]
+                                               initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
+                                               target:self
+                                               action:@selector(cancel:)];
+                self.navigationItem.leftBarButtonItem = cancelItem;
+            }
+        }
+    }
+    
+    return self;
+}
+
+/*
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil
+                          bundle:(NSBundle *)nibBundleOrNil
+{
+    @throw [NSException exceptionWithName:@"Wrong initializer"
+                                   reason:@"Use initForNewItem:"
+                                 userInfo:nil];
+    return nil;
+}
+*/
+
+- (void)save:(id)sender
+{
+    [self.presentingViewController dismissViewControllerAnimated:YES
+                                                      completion:nil];
+}
+
+- (void)cancel:(id)sender
+{
+    // If the user cancelled, then remove the new event from the store
+    [[SVKEventStore sharedStore] removeEvent:self.event];
+    
+    [self.presentingViewController dismissViewControllerAnimated:YES
+                                                      completion:nil];
 }
 
 // Set navigation item name as an EventDate.name
