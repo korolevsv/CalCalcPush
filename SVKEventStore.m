@@ -116,7 +116,7 @@ static NSString * const nameNewEvent = @"New Event";
     // Get the one document directory from that list
     NSString *documentDirectory = [documentDirectories firstObject];
     
-    return [documentDirectory stringByAppendingPathComponent:archiveName];
+    return [documentDirectory stringByAppendingPathComponent:archiveFullName];
 }
 
 - (NSString *)eventArchiveBundlePath
