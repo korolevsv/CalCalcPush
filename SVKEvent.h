@@ -16,4 +16,8 @@
 - (NSString *) dateDescription;
 - (NSString *) timeDescription;
 
+- (id)initWithCoder:(NSCoder *)coder;
+
+- (void)encodeWithCoder:(NSCoder *)coder;
+
 @end
