@@ -18,6 +18,27 @@ NSCalendar *calendar;
 NSDateComponents *components;
 NSCalendarUnit units = NSSecondCalendarUnit;
 
+#pragma mark - Class methods
++ (NSDate *)removeSecondsFromDate:(NSDate*)date
+{
+    components = [[NSDateComponents alloc] init];
+    unsigned unitFlagsDateOnly = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit;
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    NSDateComponents *components = [cal components:unitFlagsDateOnly fromDate:date];
+    return [cal dateFromComponents:components];
+}
+
++ (NSDate *)removeTimeFromDate:(NSDate*)date
+{
+    components = [[NSDateComponents alloc] init];
+    unsigned unitFlagsDateOnly = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit;
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    NSDateComponents *components = [cal components:unitFlagsDateOnly fromDate:date];
+    return [cal dateFromComponents:components];
+}
+
+#pragma mark - Life cycle
+
 - (instancetype)init {
     NSDate *now = [[NSDate alloc] init];
     NSDate *todayMidnight; // Today midnight (00:00)
@@ -183,15 +204,6 @@ NSCalendarUnit units = NSSecondCalendarUnit;
     NSCalendar *cal = [NSCalendar currentCalendar];
     NSDateComponents *components = [cal components:unitFlagsDateOnly fromDate:now];
     _endDate = [cal dateFromComponents:components];
-}
-
-+ (NSDate *)removeSecondsFromDate:(NSDate*)date
-{
-    components = [[NSDateComponents alloc] init];
-    unsigned unitFlagsDateOnly = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit;
-    NSCalendar *cal = [NSCalendar currentCalendar];
-    NSDateComponents *components = [cal components:unitFlagsDateOnly fromDate:date];
-    return [cal dateFromComponents:components];
 }
 
 

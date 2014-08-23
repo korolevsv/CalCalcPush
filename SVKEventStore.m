@@ -10,6 +10,14 @@
 #import "SVKEvent.h"
 #import "SVKCalCalc.h"
 
+static NSString * const archiveFullName = @"events.archive";
+static NSString * const archiveName = @"events";
+static NSString * const archiveType = @"archive";
+
+
+static NSString * const nameNewEvent = @"New Event";
+
+
 @interface SVKEventStore()
 
 @property (nonatomic) NSMutableArray *privateEvents;
@@ -46,8 +54,14 @@
     self = [super init];
     NSString *path = [self eventArchivePath];
     _privateEvents = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
-    
-    // If the array hadn't been saved previously, create a new empty one
+//    path = [self eventArchiveBundlePath];
+    // If the array hadn't been saved previously, read defaults from app bundle
+    if (!_privateEvents) {
+        path = [self eventArchiveBundlePath];
+        _privateEvents = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+    }
+
+    // If the array hadn't been saved previously and there is no archive in application bundle, create a new empty one
     if (!_privateEvents) {
         _privateEvents = [[NSMutableArray alloc] init];
     }
@@ -63,7 +77,7 @@
 - (SVKEvent *) createEvent
 {
     SVKEvent * event = [[SVKEvent alloc] init];
-    event.eventName = @"New Event";
+    event.eventName = nameNewEvent;
     event.eventDate = [SVKCalCalc removeSecondsFromDate:[[NSDate alloc] init]];
     
     [self.privateEvents addObject:event];
@@ -102,8 +116,21 @@
     // Get the one document directory from that list
     NSString *documentDirectory = [documentDirectories firstObject];
     
-    return [documentDirectory stringByAppendingPathComponent:@"events.archive"];
+    return [documentDirectory stringByAppendingPathComponent:archiveName];
 }
+
+- (NSString *)eventArchiveBundlePath
+{
+    // Get a pointer to the application bundle
+    NSBundle *applicationBundle = [NSBundle mainBundle];
+    
+    // Ask for the path to a resource named myImage.png in the bundle
+    NSString *path = [applicationBundle pathForResource:archiveName
+                                                 ofType:archiveType];
+    
+    return path;
+}
+
 - (BOOL)saveChanges
 {
     NSString *path = [self eventArchivePath];

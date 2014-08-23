@@ -37,6 +37,9 @@
                                                       completion:nil];
 }
 
+- (IBAction)midnightButton:(id)sender {
+    self.timePicker.date = [SVKCalCalc removeTimeFromDate:self.timePicker.date];
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

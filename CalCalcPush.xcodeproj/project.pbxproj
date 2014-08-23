@@ -25,6 +25,7 @@
 		539930D41994E1FB006210B4 /* CalcPushSegue.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 539930D31994E1FB006210B4 /* CalcPushSegue.storyboard */; };
 		539930D81994EF60006210B4 /* SVKDatesDurationlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 539930D71994EF60006210B4 /* SVKDatesDurationlViewController.m */; };
 		539930DF199516AA006210B4 /* SVKCalCalc.m in Sources */ = {isa = PBXBuildFile; fileRef = 539930DE199516AA006210B4 /* SVKCalCalc.m */; };
+		539C0C1B19A8E88B00174205 /* events.archive in Resources */ = {isa = PBXBuildFile; fileRef = 539C0C1A19A8E88B00174205 /* events.archive */; };
 		53DB5809199B583300F926B2 /* SVKTimePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53DB5808199B583300F926B2 /* SVKTimePickerViewController.m */; };
 		53F2CB06199D384B0043088E /* SVKDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F2CB04199D384B0043088E /* SVKDetailViewController.m */; };
 		53F2CB07199D384B0043088E /* SVKDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53F2CB05199D384B0043088E /* SVKDetailViewController.xib */; };
@@ -70,6 +71,7 @@
 		539930D71994EF60006210B4 /* SVKDatesDurationlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVKDatesDurationlViewController.m; sourceTree = "<group>"; };
 		539930DD199516AA006210B4 /* SVKCalCalc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVKCalCalc.h; sourceTree = "<group>"; };
 		539930DE199516AA006210B4 /* SVKCalCalc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVKCalCalc.m; sourceTree = "<group>"; };
+		539C0C1A19A8E88B00174205 /* events.archive */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = events.archive; sourceTree = "<group>"; };
 		53DB5807199B583300F926B2 /* SVKTimePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVKTimePickerViewController.h; sourceTree = "<group>"; };
 		53DB5808199B583300F926B2 /* SVKTimePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVKTimePickerViewController.m; sourceTree = "<group>"; };
 		53F2CB03199D384B0043088E /* SVKDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVKDetailViewController.h; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 		539930981994E1B6006210B4 = {
 			isa = PBXGroup;
 			children = (
+				539C0C1A19A8E88B00174205 /* events.archive */,
 				5366CF1C199EC8330079488A /* SVKEventCell.h */,
 				5366CF1D199EC8330079488A /* SVKEventCell.m */,
 				5366CF1E199EC8330079488A /* SVKEventCell.xib */,
@@ -282,6 +285,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				539C0C1B19A8E88B00174205 /* events.archive in Resources */,
 				539930D41994E1FB006210B4 /* CalcPushSegue.storyboard in Resources */,
 				539930AF1994E1B6006210B4 /* InfoPlist.strings in Resources */,
 				5366CF20199EC8330079488A /* SVKEventCell.xib in Resources */,
@@ -389,7 +393,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -421,7 +425,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -435,9 +439,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CalCalcPush/CalCalcPush-Prefix.pch";
 				INFOPLIST_FILE = "CalCalcPush/CalCalcPush-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -450,9 +454,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CalCalcPush/CalCalcPush-Prefix.pch";
 				INFOPLIST_FILE = "CalCalcPush/CalCalcPush-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

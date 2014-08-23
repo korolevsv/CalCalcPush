@@ -27,6 +27,8 @@
  - (void) setComponents:(BOOL)isSecs withMins:(BOOL)isMins withHours:(BOOL)isHours withDays:(BOOL)isDays withMonths:(BOOL)isMonths withYears:(BOOL)isYears;
 */
 
++ (NSDate *)removeSecondsFromDate:(NSDate*)date;
++ (NSDate *)removeTimeFromDate:(NSDate*)date;
 - (long)intervalYears;
 - (long)intervalMonths;
 - (long)intervalDays;
@@ -35,7 +37,6 @@
 - (NSTimeInterval)intervalSecs;
 - (void)setStartNow;
 - (void)setEndNow;
-+ (NSDate *)removeSecondsFromDate:(NSDate*)date;
 
 
 @end
