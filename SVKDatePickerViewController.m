@@ -53,7 +53,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-//    self.isEventDate = NO;
+    if(self.isEventDate) {
+        self.pickEventButton.hidden = YES;
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -93,6 +95,8 @@
      if ([segue.identifier isEqualToString:@"PickEvent"]) {
          SVKEventsTableViewController *eventsTableController = (SVKEventsTableViewController *)segue.destinationViewController;
          eventsTableController.isPickingFromDatePicker = YES;
+         eventsTableController.isDateStart = self.isDateStart;
+         eventsTableController.calCalcBuffer = self.calCalc;
      }
  }
 

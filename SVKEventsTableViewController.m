@@ -14,6 +14,9 @@
 
 @interface SVKEventsTableViewController ()
 
+@property UIColor *colorTextInteracive;
+@property UIColor *colorTextNoninteractive;
+
 @end
 
 @implementation SVKEventsTableViewController
@@ -40,6 +43,7 @@
     // Call the superclass's designated initializer
     self = [super initWithStyle:UITableViewStylePlain];
     self.isPickingFromDatePicker = NO;
+    
     return self;
 }
 
@@ -57,6 +61,12 @@
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
+    _colorTextNoninteractive = [UIColor blackColor];
+    UIColor *colorTextInteractive = [UIColor colorWithRed:0
+                                                    green:0.478431
+                                                     blue:1
+                                                    alpha:1.0];
+    _colorTextInteracive = colorTextInteractive;
     
     // Called from DatePicker or Events Tab?
     if (self.isPickingFromDatePicker) {
@@ -111,14 +121,19 @@
     // Set cell accessory type
     cell.accessoryType = UITableViewCellAccessoryDetailButton;
     
+    // Show if cell is active for picking event
+    if (self.isPickingFromDatePicker) {
+        cell.nameLabel.textColor = _colorTextInteracive;
+    } else {
+        cell.nameLabel.textColor = _colorTextNoninteractive;
+    }
+    
     // Set the text on the cell with the description of the item
     // that is at the nth index of items, where n = row this cell
     // will appear in on the tableview
+    // Configure the cell with the BNRItem
     NSArray *events = [[SVKEventStore sharedStore] allEvents];
     SVKEvent *event = events[indexPath.row];
-    
-//    cell.textLabel.text = [date description];
-    // Configure the cell with the BNRItem
     cell.nameLabel.text = event.eventName;
     cell.dateLabel.text = [event dateDescription];
     cell.timeLabel.text = [event timeDescription];
@@ -143,16 +158,25 @@
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Use this selection to set Event as start or end date
-    SVKDetailViewController *detailViewController =
-    [[SVKDetailViewController alloc] init];
-    NSArray *events = [[SVKEventStore sharedStore] allEvents];
-    SVKEvent *selectedEvent = events[indexPath.row];
-    detailViewController.event = selectedEvent;
-    [detailViewController setEventTitle:selectedEvent];
-        
-    // Push it onto the top of the navigation controller's stack
-    [self.navigationController pushViewController:detailViewController
-                                         animated:YES];
+    if (self.isPickingFromDatePicker) {
+        NSArray *events = [[SVKEventStore sharedStore] allEvents];
+        SVKEvent *selectedEvent = events[indexPath.row];
+     
+        if (self.isPickingFromDatePicker) {
+            if (self.isDateStart) {
+                self.calCalcBuffer.startDate = selectedEvent.eventDate;
+            } else {
+                self.calCalcBuffer.endDate = selectedEvent.eventDate;
+            }
+        }
+
+        [self.presentingViewController dismissViewControllerAnimated:YES
+                                                          completion:nil];
+
+        // Push it onto the top of the navigation controller's stack
+//        [self.navigationController pushViewController:detailViewController
+//                                             animated:YES];
+    }
 }
 
 /*

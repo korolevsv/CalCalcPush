@@ -78,10 +78,7 @@
     if (self.isEventDate) {
         self.timePicker.date = self.calCalc.startDate;
         self.navigationItem.title = @"Set Event Date";
-        return;
-    }
-    
-    if (self.isDateStart) {
+    } else if (self.isDateStart) {
         self.timePicker.date = self.calCalc.startDate;
         self.navigationItem.title = @"Set Start Time";
     } else {

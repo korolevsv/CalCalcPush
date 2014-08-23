@@ -68,8 +68,6 @@
 
 NSTimer *timerNow = nil;
 
-
-
 #pragma mark - Set Start-End Dates
 - (IBAction)pickDate:(id)sender {
     [self performSegueWithIdentifier:@"ModalDate" sender:sender];
@@ -243,8 +241,14 @@ NSTimer *timerNow = nil;
 {
     _colorTextFieldDefault = [UIColor blackColor];
     _colorTextFieldDisabled = [UIColor lightGrayColor];
-    _colorTextInteracive = [UIColor blueColor];
+//    _colorTextInteracive = [UIColor blueColor];
     _colorTextNoninteractive = [UIColor blackColor];
+    UIColor *colorTextInteractive = [UIColor colorWithRed:0
+                                                    green:0.478431
+                                                     blue:1
+                                                    alpha:1.0];
+    _colorTextInteracive = colorTextInteractive;
+
     
     // Set initial switches and text backgrounds:
     self.switchYears.on = YES;
@@ -253,9 +257,9 @@ NSTimer *timerNow = nil;
     [self switchMonths:self.switchMonths];
     self.switchDays.on = YES;
     [self switchDay:self.switchDays];
-    self.switchHours.on = NO;
+    self.switchHours.on = YES;
     [self switchHour:self.switchHours];
-    self.switchMins.on = NO;
+    self.switchMins.on = YES;
     [self switchMin:self.switchMins];
     self.switchSecs.on = NO;
     [self switchSec:self.switchSecs];

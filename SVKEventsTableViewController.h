@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SVKCalCalc.h"
 
 @interface SVKEventsTableViewController : UITableViewController
 
 @property BOOL isPickingFromDatePicker;
+@property BOOL isDateStart;
+@property SVKCalCalc *calCalcBuffer;
 
 @end

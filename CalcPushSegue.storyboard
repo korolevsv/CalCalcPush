@@ -374,6 +374,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     </navigationItem>
                     <connections>
                         <outlet property="DatePicker" destination="KVU-Qp-aJM" id="XvP-pX-rJ9"/>
+                        <outlet property="pickEventButton" destination="QYp-dG-9jI" id="828-us-9Kv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="itu-iN-Ulb" userLabel="First Responder" sceneMemberID="firstResponder"/>

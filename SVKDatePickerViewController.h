@@ -15,6 +15,7 @@
 @property SVKCalCalc *calCalc;
 @property (nonatomic) BOOL isDateStart;
 @property (weak, nonatomic) IBOutlet UIDatePicker *DatePicker;
+@property (weak, nonatomic) IBOutlet UIButton *pickEventButton;
 
 @property BOOL isEventDate;
 
