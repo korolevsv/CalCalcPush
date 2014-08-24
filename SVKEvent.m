@@ -10,23 +10,28 @@
 
 @implementation SVKEvent
 
+- (id)initWithCoder:(NSCoder *)coder
+{
+    self = [super init];
+    if ( self )
+    {
+        self.eventName = [coder decodeObjectForKey:@"self.eventName"];
+        self.eventDate = [coder decodeObjectForKey:@"self.eventDate"];
+    }
+
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)coder
+{
+    [coder encodeObject:self.eventName forKey:@"self.eventName"];
+    [coder encodeObject:self.eventDate forKey:@"self.eventDate"];
+}
+
+
 - (NSString *) description
 {
     return self.eventName;
-}
-- (void)encodeWithCoder:(NSCoder *)aCoder
-{
-    [aCoder encodeObject:self.eventName forKey:@"eventName"];
-    [aCoder encodeObject:self.eventDate forKey:@"eventDate"];
-}
-- (instancetype)initWithCoder:(NSCoder *)aDecoder
-{
-    self = [super init];
-    if (self) {
-        _eventName = [aDecoder decodeObjectForKey:@"eventName"];
-        _eventDate = [aDecoder decodeObjectForKey:@"eventDate"];
-    }
-    return self;
 }
 
 - (NSString *) dateDescription
