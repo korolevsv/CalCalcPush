@@ -223,7 +223,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <accessibility key="accessibilityConfiguration" label="DatesPeriodView"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Duration" id="QGx-Ih-gAf"/>
+                    <tabBarItem key="tabBarItem" title="Duration" image="Timer" id="QGx-Ih-gAf"/>
                     <navigationItem key="navigationItem" title="Interval" id="edQ-Qb-HkU"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
@@ -259,7 +259,7 @@
         <scene sceneID="jeh-dF-Twa">
             <objects>
                 <navigationController definesPresentationContext="YES" id="oEs-3Z-hwl" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Events" id="tj4-et-lvi"/>
+                    <tabBarItem key="tabBarItem" title="Events" image="Top_Charts" id="tj4-et-lvi"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="feh-aD-iKV">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -294,7 +294,7 @@
                             <outlet property="delegate" destination="gw1-LY-r17" id="O5W-Xu-TtF"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Events" id="Bmv-nE-PdK"/>
+                    <tabBarItem key="tabBarItem" title="" id="Bmv-nE-PdK"/>
                     <navigationItem key="navigationItem" title="Choose Date" id="Vhq-Qp-RKR">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="AxD-YB-2Qf">
                             <connections>
@@ -485,12 +485,16 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <point key="canvasLocation" x="837" y="38"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Timer" width="27" height="27"/>
+        <image name="Top_Charts" width="27" height="24"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="cKp-Un-jya"/>
+        <segue reference="MTI-yQ-uYC"/>
     </inferredMetricsTieBreakers>
 </document>

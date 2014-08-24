@@ -12,6 +12,7 @@
 #import "SVKDatePickerViewController.h"
 #import "SVKTimePickerViewController.h"
 
+//static NSString * const durationTabImageName = @"Ruler";
 
 @interface SVKDatesDurationlViewController ()
 
@@ -80,9 +81,12 @@ NSTimer *timerNow = nil;
 #pragma mark Standard View LifeCycle methods
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
+    // ??? This initializer never be called ???
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+//        UIImage *imageTab = [UIImage imageNamed:durationTabImageName];
+//        self.tabBarItem.image = imageTab;
     }
     return self;
 }
@@ -93,6 +97,11 @@ NSTimer *timerNow = nil;
     // Do any additional setup after loading the view.
     _calCalc = [[SVKCalCalc alloc] init];
     _isFixedDates = YES;
+
+    //Set image for tab bar
+//    UIImage *imageTab = [UIImage imageNamed:durationTabImageName];
+//    self.tabBarItem.image = imageTab;
+
     [self initView];
     
 }

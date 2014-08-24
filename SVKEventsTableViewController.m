@@ -52,6 +52,7 @@
 // Make init the Designated initializer:
 - (instancetype)init
 {
+    // ??? This initializer never be called ???
     // Call the superclass's designated initializer
     self = [super initWithStyle:UITableViewStylePlain];
     self.isPickingFromDatePicker = NO;

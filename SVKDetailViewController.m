@@ -86,9 +86,8 @@
     self = [super initWithNibName:nil bundle:nil];
 //    self = [super init];
     if (self) {
-        _calCalc = [[SVKCalCalc alloc] init];
+        self.calCalc = [[SVKCalCalc alloc] init];
         if (self) {
-            _isNew = isNew;
             if (isNew) {
                 UIBarButtonItem *doneItem = [[UIBarButtonItem alloc]
                                              initWithBarButtonSystemItem:UIBarButtonSystemItemDone
