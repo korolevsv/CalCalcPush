@@ -223,7 +223,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <accessibility key="accessibilityConfiguration" label="DatesPeriodView"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Duration" image="Timer" id="QGx-Ih-gAf"/>
+                    <tabBarItem key="tabBarItem" title="Duration" image="CalRuler" id="QGx-Ih-gAf"/>
                     <navigationItem key="navigationItem" title="Interval" id="edQ-Qb-HkU"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
@@ -486,7 +486,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         </scene>
     </scenes>
     <resources>
-        <image name="Timer" width="27" height="27"/>
+        <image name="CalRuler" width="26" height="26"/>
         <image name="Top_Charts" width="27" height="24"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
