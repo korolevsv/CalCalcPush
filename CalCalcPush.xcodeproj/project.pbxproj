@@ -219,9 +219,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		539930A01994E1B6006210B4 /* CalCalcPush */ = {
+		539930A01994E1B6006210B4 /* CalCalc */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 539930CD1994E1B6006210B4 /* Build configuration list for PBXNativeTarget "CalCalcPush" */;
+			buildConfigurationList = 539930CD1994E1B6006210B4 /* Build configuration list for PBXNativeTarget "CalCalc" */;
 			buildPhases = (
 				5399309D1994E1B6006210B4 /* Sources */,
 				5399309E1994E1B6006210B4 /* Frameworks */,
@@ -231,7 +231,7 @@
 			);
 			dependencies = (
 			);
-			name = CalCalcPush;
+			name = CalCalc;
 			productName = CalCalcPush;
 			productReference = 539930A11994E1B6006210B4 /* CalCalcPush.app */;
 			productType = "com.apple.product-type.application";
@@ -282,7 +282,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				539930A01994E1B6006210B4 /* CalCalcPush */,
+				539930A01994E1B6006210B4 /* CalCalc */,
 				539930BB1994E1B6006210B4 /* CalCalcPushTests */,
 			);
 		};
@@ -344,12 +344,12 @@
 /* Begin PBXTargetDependency section */
 		539930C21994E1B6006210B4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 539930A01994E1B6006210B4 /* CalCalcPush */;
+			target = 539930A01994E1B6006210B4 /* CalCalc */;
 			targetProxy = 539930C11994E1B6006210B4 /* PBXContainerItemProxy */;
 		};
 		53D755F519A936B400DDA6FA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 539930A01994E1B6006210B4 /* CalCalcPush */;
+			target = 539930A01994E1B6006210B4 /* CalCalc */;
 			targetProxy = 53D755F419A936B400DDA6FA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -526,7 +526,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		539930CD1994E1B6006210B4 /* Build configuration list for PBXNativeTarget "CalCalcPush" */ = {
+		539930CD1994E1B6006210B4 /* Build configuration list for PBXNativeTarget "CalCalc" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				539930CE1994E1B6006210B4 /* Debug */,
